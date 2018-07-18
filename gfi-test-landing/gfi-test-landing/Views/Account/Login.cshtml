@@ -1,6 +1,7 @@
 ﻿@*@using gfi_test_landing.Models
     @model LoginViewModel*@
 @{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
     ViewBag.Title = "Log in";
 }
 
@@ -13,7 +14,7 @@
 
             <div class="text-center mb-4">
                 <img src="~/images/logo4.png" />
-                
+
 
                 <h1 class="h3 mb-3 font-weight-normal">The testing platform</h1>
 
@@ -57,7 +58,8 @@
 
 
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="window.location.href='@Url.Action("Index","Home")'";>Sign in</button>
+           
 
             <p class="mt-5 mb-3 text-muted text-center">© 2018-2019</p>
 
