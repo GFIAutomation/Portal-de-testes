@@ -6,23 +6,9 @@
     <title>Sufee Admin - HTML5 Admin Template</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
-    
-    @*<link rel="stylesheet" href="~/Content/css/normalize.css">
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Content/css/themify-icons.css">
-    <link rel="stylesheet" href="~/Content/css/flag-icon.min.css">
-    <link rel="stylesheet" href="~/Content/css/cs-skin-elastic.css">
-     <link rel="stylesheet" href="assets/css/bootstrap-select.less"> 
-    <link rel="stylesheet" href="~/Content/scss/style.css">
-    <link href="~/Content/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">*@
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -174,29 +160,13 @@
         <div class="container body-content">
             @RenderBody()
             <hr />
-
         </div>
 
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-
     </div>
-
-    @*<script src="~/Content/js/vendor/jquery-2.1.4.min.js"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    @*<script src="~/Content/js/plugins.js"></script>
-        <script src="~/Content/js/main.js"></script>
-
-
-        <script src="~/Content/js/lib/chart-js/Chart.bundle.js"></script>
-        <script src="~/Content/js/dashboard.js"></script>
-        <script src="~/Content/js/widgets.js"></script>
-        <script src="~/Content/js/lib/vector-map/jquery.vmap.js"></script>
-        <script src="~/Content/js/lib/vector-map/jquery.vmap.min.js"></script>
-        <script src="~/Content/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-        <script src="~/Content/js/lib/vector-map/country/jquery.vmap.world.js"></script>*@
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Content/js")
        
