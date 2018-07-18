@@ -12,5 +12,10 @@ namespace gfi_test_landing.Controllers
         {
             return View();
         }
+
+        public ActionResult Button()
+        {
+            return View();
+        }
     }
 }
