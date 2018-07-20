@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -16,18 +17,30 @@ namespace gfi_test_landing.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("gfipt0583.testLanding.dbo")
         {
         }
+
+        //protected override void OnModelCreating(DbModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
+        //    builder.Entity<ApplicationUser>().ToTable("AspUsers");
+        //    //modelBuilder.Entity<ApplicationUser>()
+        //    //    .ToTable("Users", "dbo").Property(p => p.Id).HasColumnName("User_Id");
+        //}
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+
     }
 }
