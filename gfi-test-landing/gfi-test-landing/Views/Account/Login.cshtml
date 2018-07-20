@@ -1,19 +1,49 @@
 ﻿@using gfi_test_landing.Models
-    @model LoginViewModel
+@model LoginViewModel
 @{
     Layout = "~/Views/Shared/_Layout1.cshtml";
     ViewBag.Title = "Log in";
 }
 
 
-<div class="container">
+
+
+
+
+   
+    @*<div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+    </div>
+    <br />
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    </div>
+    <br />
     <div class="row">
         <div class="col-sm"></div>
+        <div class="checkbox col-m3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <div class="col-sm"></div>
+    </div>
 
-        <div class="col-sm">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted text-center">© 2018-2019</p>*@
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-signin col-sm">
 
             <div class="text-center mb-4">
-                <img src="~/images/logo4.png" />
+                <img class="mb-4" src="~/images/logo4.png" alt="" />
 
 
                 <h1 class="h3 mb-3 font-weight-normal">The testing platform</h1>
@@ -21,95 +51,54 @@
                 <p>This is a placeholder for our testing platform. In order to test several automation technologies this will be our project.</p>
 
             </div>
+            <div class="text-center col-md-offset-2">
+                <section id="loginForm" class="form-label-group">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
 
-            <section id="loginForm">
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                   
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-default" />
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                    <p>
-                        @Html.ActionLink("Register as a new user", "Register")
-                    </p>
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
-                }
-            </section>
-            @*<div class="form-label-group">
-
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Log in" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </p>
+                    }
+                </section>
             </div>
-
-            <br />
-
-            <div class="form-label-group">
-
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-
-            </div>
-
-            <br />
-
-            <div class="row">
-
-                <div class="col-sm"></div>
-
-                <div class="checkbox col-m3">
-
-                    <label>
-
-                        <input type="checkbox" value="remember-me"> Remember me
-
-                    </label>
-
-                </div>
-
-                <div class="col-sm"></div>
-
-            </div>
-
-
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit" ;>Sign in</button>
-            @*onclick="window.location.href='@Url.Action("Index","Home")'"
-
-            <p class="mt-5 mb-3 text-muted text-center">© 2018-2019</p>
-                *@
-        </div>
-
-        <div class="col-sm"></div>
-
+        </form>
     </div>
 
 </div>
+
+        
+
+
+
+
 
