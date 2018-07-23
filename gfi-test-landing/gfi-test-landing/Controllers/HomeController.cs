@@ -8,11 +8,13 @@ namespace gfi_test_landing.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public ActionResult Button()
         {
             return View();

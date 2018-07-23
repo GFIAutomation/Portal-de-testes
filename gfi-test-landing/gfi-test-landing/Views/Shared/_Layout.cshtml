@@ -1,7 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sufee Admin - HTML5 Admin Template</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -9,10 +11,10 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-       
+
 </head>
 <body>
 
@@ -82,6 +84,7 @@
 
             <div class="header-menu">
 
+
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
@@ -95,48 +98,54 @@
 
                     </div>
                 </div>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="col-sm-5">
+                            <div class="user-area dropdown float-right">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" onclick="" aria-expanded="false">
+                                    <img class="user-avatar rounded-circle" src="~/images/admin.jpg" alt="User Avatar">
+                                </a>
 
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="~/images/admin.jpg" alt="User Avatar">
-                        </a>
+                                <div class="user-menu dropdown-menu">
+                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
 
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power -off"></i>Logout</a>
+                                </div>
+                            </div>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <div class="language-select dropdown" id="language-select">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                                    <i class="flag-icon flag-icon-us"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="language">
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-pt"></i>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <span class="flag-icon flag-icon-fr"></span>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-es"></i>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-us"></i>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-it"></i>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language">
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-pt"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                    }
+                }
             </div>
 
         </header><!-- /header -->
@@ -170,10 +179,16 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Content/js")
-       
+
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
+
     <script>
         (function ($) {
             "use strict";
