@@ -105,11 +105,11 @@
                         @Html.AntiForgeryToken()
                         <div class="col-sm-5">
                             <div class="user-area dropdown float-right">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" onclick="" aria-expanded="false">
+                                <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" onclick="functionProfile()" aria-expanded="false">
                                     <img class="user-avatar rounded-circle" src="~/images/admin.jpg" alt="User Avatar">
                                 </a>
 
-                                <div class="user-menu dropdown-menu">
+                                <div class="user-menu dropdown-menu" id="users-menu">
                                     <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
                                     <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
@@ -121,10 +121,10 @@
                             </div>
 
                             <div class="language-select dropdown" id="language-select">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" onclick="functionFlag()" id="language" aria-haspopup="true" aria-expanded="true">
                                     <i class="flag-icon flag-icon-us"></i>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="language">
+                                <div id="flag" class="dropdown-menu" aria-labelledby="language">
                                     <div class="dropdown-item">
                                         <i class="flag-icon flag-icon-pt"></i>
                                     </div>
@@ -182,12 +182,6 @@
     @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Content/js")
-
-    <script>
-        $(document).ready(function () {
-            $(".dropdown-toggle").dropdown();
-        });
-    </script>
 
     <script>
         (function ($) {
