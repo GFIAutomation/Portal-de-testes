@@ -241,6 +241,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\chartjs.min.js" />
     <Content Include="Content\js\dashboard.js" />
+    <Content Include="Content\js\dropdown.js" />
     <Content Include="Content\js\index.html" />
     <Content Include="Content\js\less.min.js" />
     <Content Include="Content\js\lib\chart-js\Chart.bundle.js" />
