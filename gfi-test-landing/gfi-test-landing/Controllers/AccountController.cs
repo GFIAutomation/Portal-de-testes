@@ -9,14 +9,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gfi_test_landing.Models;
+using System.Data.SqlClient;
 
 namespace gfi_test_landing.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+       
 
         public AccountController()
         {
@@ -68,8 +71,21 @@ namespace gfi_test_landing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            testLandingEntities db = new testLandingEntities();
+
+            AspNetUsers user = new AspNetUsers();
+            user = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
+
+            if (user != null)
+            {
+                Session["FirstName"] = user.FirstName;
+                Session["UserId"] = user.UserName;
+                return RedirectToAction("Index");
+            }
+
             if (!ModelState.IsValid)
             {
+               
                 return View(model);
             }
 

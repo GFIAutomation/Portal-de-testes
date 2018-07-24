@@ -539,7 +539,7 @@ header .form-inline {
     .user-area .user-menu .nav-link {
       color: #272c33;
       display: block;
-      font-size: 14px;
+      /*font-size: 14px;*/
       line-height: 22px;
       padding: 5px 0; }
   .user-area .user-avatar {
