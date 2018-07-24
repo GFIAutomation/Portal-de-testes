@@ -113,14 +113,15 @@
                                     <img class="user-avatar rounded-circle" src="~/images/admin.jpg" alt="User Avatar">
                                 </a>
 
-                                <div class="user-menu dropdown-menu" id="users-menu">
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                                <div id="users-menu" class="user-menu dropdown-menu">
 
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                                    <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
 
-                                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>
 
-                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power -off"></i>Logout</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
+
+                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i>Logout</a>
                                 </div>
                             </div>
 
@@ -154,6 +155,7 @@
 
         </header><!-- /header -->
         <!-- Header-->
+     
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -186,7 +188,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Content/js")
-
+    @*<script src="~/Content/js/Popper.js"></script>*@
     <script>
         (function ($) {
             "use strict";

@@ -24,12 +24,11 @@ namespace gfi_test_landing
 
             bundles.Add(new ScriptBundle("~/Content/js").Include(
                 "~/Content/js/vendor/jquery-2.1.4.min.js",
+                 "~/Content/js/bootstrap.js",
                      "~/Content/js/plugins.js",
                      "~/Content/js/main.js",
                      "~/Content/js/dashboard.js",
-                     "~/Content/js/widgets.js",
-                     "~/Content/js/dropdown.js"));
-           
+                     "~/Content/js/widgets.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/normalize.css",
