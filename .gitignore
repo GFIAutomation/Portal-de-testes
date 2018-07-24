@@ -260,5 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 
-Web.config
-.Models/IdentityModels.cs
+*Web.config
+*.Models/IdentityModels.cs
