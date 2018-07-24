@@ -412,7 +412,6 @@
     <Content Include="Content\js\lib\vector-map\vector.init.js" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\plugins.js" />
-    <Content Include="Content\js\Popper.js" />
     <Content Include="Content\js\popper.min.js" />
     <Content Include="Content\js\selectFx.js" />
     <Content Include="Content\js\vendor\index.html" />
