@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="414313e2155a4a7e8213b00b3c7d36e8" Name="Diagram1">
+        <EntityTypeShape EntityType="testLandingModel.C__MigrationHistory" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Action" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.ActionObject" Width="1.5" PointX="13.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetRoles" Width="1.5" PointX="1.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetUserClaims" Width="1.5" PointX="3" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetUserLogins" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetUsers" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Attribute" Width="1.5" PointX="7.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Battery" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.BatteryTest" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.BatteryUser" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Credentials" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Data" Width="1.5" PointX="7.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Environment" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Login" Width="1.5" PointX="11.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Machine" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Method" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Object" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Project" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Report" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Request" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Role" Width="1.5" PointX="12.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Schedule" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.ScheduleWeekDays" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.Test" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.TestAction" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.TestUser" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.WeekDays" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <AssociationConnector Association="testLandingModel.FK_ActionObject_Action" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_TestAction_Action" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_ActionObject_Object" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_AspNetUserLogins_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryUser_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Request_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_TestUser_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Object_Attribute" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Battery_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryTest_Battery" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryUser_Battery" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryTest_Environment" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryTest_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryTest_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_BatteryTest_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Report_BatteryTest" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Request_BatteryTest" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Object_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Report_Machine" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Object_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Request_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_Test_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_ScheduleWeekDays_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_ScheduleWeekDays_WeekDays" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_TestAction_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.FK_TestUser_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="testLandingModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
