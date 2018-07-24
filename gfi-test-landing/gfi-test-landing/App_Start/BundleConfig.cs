@@ -28,11 +28,7 @@ namespace gfi_test_landing
                      "~/Content/js/plugins.js",
                      "~/Content/js/main.js",
                      "~/Content/js/dashboard.js",
-                     "~/Content/js/widgets.js"
-                    
-         //           /* "~/Content/js/popper.min.js"*/,
-         //"~/Content/js/dropdown.js"
-         ));
+                     "~/Content/js/widgets.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/normalize.css",
