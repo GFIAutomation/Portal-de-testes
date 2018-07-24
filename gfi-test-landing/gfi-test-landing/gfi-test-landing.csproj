@@ -1438,6 +1438,8 @@
     <Content Include="Views\Home\Button.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Shared\_LogoutPartial.cshtml" />
+    <Content Include="Views\Home\TestCreate.cshtml" />
+    <Content Include="Views\Home\TestList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
