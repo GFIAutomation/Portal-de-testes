@@ -1,11 +1,21 @@
-﻿
-
-"use strict";
+﻿"use strict";
 
 function functionProfile() {
 
-    if (!event.target.matches('dropdown-menu show')) {
+    //var dropdowns = document.getElementById('users-menu');
 
+    //if ((dropdowns.getAttribute('class')).localeCompare('user-menu dropdown-menu show')===0) {
+
+    //    for (i = 0; i < dropdowns.length; i++) {
+    //        var openDropdown = dropdowns[i];
+    //        if (openDropdown.classList.contains('show')) {
+    //            openDropdown.classList.remove('show');
+    //        }
+    //    }
+    //}
+
+    document.getElementById("users-menu").classList.toggle("show");
+     if (!event.target.matches('users-menu')) {
         var dropdowns1 = document.getElementsByClassName("dropdown-menu show");
         var i;
         for (i = 0; i < dropdowns1.length; i++) {
@@ -15,8 +25,6 @@ function functionProfile() {
             }
         }
     }
-
-    document.getElementById("users-menu").classList.toggle("show");
 
 }
 
@@ -34,12 +42,11 @@ function functionFlag() {
 
     document.getElementById("flag").classList.toggle("show");
 
-
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
-    if (!event.target.matches('users-menu') && !event.target.matches('flag')) {
+    if (!event.target.matches('users-menu') || !event.target.matches('flag')) {
 
         var dropdowns = document.getElementsByClassName("user-menu dropdown-menu show");
         var i;
@@ -51,7 +58,7 @@ window.onclick = function (event) {
         }
 
         var dropdowns1 = document.getElementsByClassName("dropdown-menu show");
-        var i;
+        
         for (i = 0; i < dropdowns1.length; i++) {
             var openDropdown1 = dropdowns1[i];
             if (openDropdown1.classList.contains('show')) {
