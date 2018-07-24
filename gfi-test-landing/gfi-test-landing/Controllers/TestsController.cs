@@ -48,10 +48,11 @@ namespace gfi_test_landing.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,description,creation_date,id_project")] Test test)
+        public ActionResult Create([Bind(Include = "id,name,description,id_project")] Test test)
         {
             if (ModelState.IsValid)
             {
+                test.creation_date = DateTime.Now.ToString();
                 db.Test.Add(test);
                 db.SaveChanges();
                 return RedirectToAction("Index");
