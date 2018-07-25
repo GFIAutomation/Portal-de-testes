@@ -80,7 +80,7 @@ namespace gfi_test_landing.Controllers
             {
                 Session["FirstName"] = user.FirstName;
                 Session["UserId"] = user.UserName;
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
 
             if (!ModelState.IsValid)
