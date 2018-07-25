@@ -59,7 +59,7 @@ namespace gfi_test_landing.Controllers
 
         //
         // GET: /Account/Profile
-        [Authorize]
+        [Authorize]    
         public ActionResult ProfileUser()
         {
             var userId = User.Identity.GetUserId();
