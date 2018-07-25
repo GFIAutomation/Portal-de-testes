@@ -29,5 +29,10 @@ namespace gfi_test_landing.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }
