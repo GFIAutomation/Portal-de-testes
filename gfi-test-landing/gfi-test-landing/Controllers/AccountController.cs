@@ -18,8 +18,9 @@ namespace gfi_test_landing.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private testLandingEntities db = new testLandingEntities();
 
-       
+
 
         public AccountController()
         {
@@ -71,7 +72,7 @@ namespace gfi_test_landing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            testLandingEntities db = new testLandingEntities();
+            
 
             AspNetUsers user = new AspNetUsers();
             user = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
@@ -80,7 +81,7 @@ namespace gfi_test_landing.Controllers
             {
                 Session["FirstName"] = user.FirstName;
                 Session["UserId"] = user.UserName;
-                //return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             if (!ModelState.IsValid)
