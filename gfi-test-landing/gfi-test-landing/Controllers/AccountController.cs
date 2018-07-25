@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gfi_test_landing.Models;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace gfi_test_landing.Controllers
 {
@@ -21,6 +22,7 @@ namespace gfi_test_landing.Controllers
         private testLandingEntities db = new testLandingEntities();
 
 
+        static AspNetUsers user = new AspNetUsers();
 
         public AccountController()
         {
@@ -73,14 +75,12 @@ namespace gfi_test_landing.Controllers
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             
-
-            AspNetUsers user = new AspNetUsers();
             user = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
-
+            var userId = user.Id;
             if (user != null)
             {
                 Session["FirstName"] = user.FirstName;
-                Session["UserId"] = user.UserName;
+                Session["UserId"] = user.Id;
                 //return RedirectToAction("Index");
             }
 
@@ -418,6 +418,18 @@ namespace gfi_test_landing.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
+        }
+
+        //
+        // GET: /Account/Profile
+        [Authorize]
+        public ActionResult ProfileUser()
+        {
+            var userId = User.Identity.GetUserId();
+
+            user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+
+            return View(user);
         }
 
         protected override void Dispose(bool disposing)
