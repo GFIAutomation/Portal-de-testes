@@ -21,6 +21,7 @@ namespace gfi_test_landing.Controllers
         private testLandingEntities db = new testLandingEntities();
 
 
+        private AspNetUsers user = new AspNetUsers();
 
         public AccountController()
         {
@@ -57,6 +58,19 @@ namespace gfi_test_landing.Controllers
         }
 
         //
+        // GET: /Account/Profile
+        [Authorize]
+        public ActionResult ProfileUser()
+        {
+            var userId = User.Identity.GetUserId();
+
+            user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+
+            return View(user);
+        }
+
+
+        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -74,7 +88,7 @@ namespace gfi_test_landing.Controllers
         {
             
 
-            AspNetUsers user = new AspNetUsers();
+         
             user = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
 
             if (user != null)
