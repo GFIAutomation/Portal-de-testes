@@ -9,6 +9,11 @@ namespace gfi_test_landing.Controllers
     public class HomeController : Controller
     {
         [Authorize]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -29,10 +34,6 @@ namespace gfi_test_landing.Controllers
         {
             return View();
         }
-        [Authorize]
-        public ActionResult Dashboard()
-        {
-            return View();
-        }
+       
     }
 }
