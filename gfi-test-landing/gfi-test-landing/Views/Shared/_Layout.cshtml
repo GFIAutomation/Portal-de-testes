@@ -107,92 +107,85 @@
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
                         @Html.AntiForgeryToken()
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" onclick="functionProfile()" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
-                        </a>
+                        <div class="col-sm-5">
+                            <div class="user-area dropdown float-right">
+                                <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" @*onclick="functionProfile()"*@ aria-expanded="false">
+                                    <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
+                                </a>
 
-                        <div class="user-menu dropdown-menu" id="users-menu">
+                                <div class="user-menu dropdown-menu" id="users-menu">
 
-                            <a class="nav-link" href="#">
-                                @*@Html.DisplayFor(User.Identity.GetUserName(), "Index", "Manage",  new { @class = "fa fa-user" })*@
-                                @*@Html.DisplayFor(model => model.Email.FirstOrDefault())*@
-                                <i class="fa ti-user"> </i> Olá @Session["FirstName"]
-                            </a>
-                            <hr>
-                            <a class="nav-link" href="/Account/ProfileUser"><i class="fa fa-user"></i> My Profile</a>
+                                    <a class="nav-link" href="#">
+                                        @*@Html.DisplayFor(User.Identity.GetUserName(), "Index", "Manage",  new { @class = "fa fa-user" })*@
+                                        @*@Html.DisplayFor(model => model.Email.FirstOrDefault())*@
+                                        <i class="fa ti-user"> </i> Olá @Session["FirstName"]
+                                    </a>
+                                    <hr>
+                                    <a class="nav-link" href="/Account/ProfileUser"><i class="fa fa-user"></i> My Profile</a>
 
-                            @*<a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>*@
+                                    @*<a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>*@
 
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i> Logout</a>
+                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i> Logout</a>
+                                </div>
+                            </div>
+
+                            <div class="language-select dropdown" id="language-select">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" @*onclick="functionFlag()"*@ id="language" aria-haspopup="true" aria-expanded="true">
+                                    <i class="flag-icon flag-icon-uk"></i>
+                                </a>
+                                <div id="flag" class="dropdown-menu" aria-labelledby="language">
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-pt"></i>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <i class="flag-icon flag-icon-uk"></i>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
+                    }
+                }
+            </div>
 
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" onclick="functionFlag()" id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div id="flag" class="dropdown-menu" aria-labelledby="language">
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-pt"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
+        </header><!-- /header -->
+        <!-- Header-->
 
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
                 </div>
-}
-}
-</div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</header><!-- /header -->
-<!-- Header-->
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
 
-<div class="breadcrumbs">
-<div class="col-sm-4">
-<div class="page-header float-left">
-<div class="page-title">
-<h1>Dashboard</h1>
-</div>
-</div>
-</div>
-<div class="col-sm-8">
-<div class="page-header float-right">
-<div class="page-title">
-<ol class="breadcrumb text-right">
-<li class="active">Dashboard</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-
-<div class="container body-content">
-@RenderBody()
-<hr />
-</div>
-
-                                    @*<footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>*@
-</div>
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Content/js")
+
+  
 
     <script>
         (function ($) {
