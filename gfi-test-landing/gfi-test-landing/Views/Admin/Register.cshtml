@@ -11,93 +11,69 @@
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
-    <hr />
+    @*<hr />*@
 
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.Email, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.Password, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+   
 
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
 
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+    @*<div class="animated fadeIn">*@
 
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.FirstName, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
 
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.LabelFor(m => m.LastName, new { @class = "control-label" }):
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    <div class="col-lg-10 offset-1">
+        <div class="card">
+            @*<div class="card-header">Example Form</div>*@
+            <div class="card-body card-block">
+                @*<form action="" method="post" class="">*@
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Username" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Surname" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                        @Html.PasswordFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
+
+                    </div>
+                </div>
+
+                <div class="form-actions form-group">
+                    <input type="submit" class="btn btn-success" value="Register" />
+                </div>
+                @*</form>*@
+                @*</div>*@
             </div>
         </div>
+       
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
+        @*</div>*@
 }
+
 
 

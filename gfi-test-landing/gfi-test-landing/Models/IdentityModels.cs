@@ -21,6 +21,8 @@ namespace gfi_test_landing.Models
             return userIdentity;
         }
 
+       
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -30,18 +32,26 @@ namespace gfi_test_landing.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-        : base("gfipt0581.testLanding.dbo")
-        //: base("gfipt0583.testLanding.dbo")
+        //: base("gfipt0581.testLanding.dbo")
+        : base("gfipt0583.testLanding.dbo")
         //: base("gfipt0369.testLanding.dbo")
         {
         }
 
-        //protected override void OnModelCreating(DbModelBuilder builder)
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
-        //    base.OnModelCreating(builder);
-        //    builder.Entity<ApplicationUser>().ToTable("AspUsers");
-        //    //modelBuilder.Entity<ApplicationUser>()
-        //    //    .ToTable("Users", "dbo").Property(p => p.Id).HasColumnName("User_Id");
+        //    base.OnModelCreating(modelBuilder);
+
+        //    // Renaming default ASP.NET tables
+        //    modelBuilder.Entity<IdentityUser>().ToTable("Users");
+           
+        //    modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+        //    modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+        //    modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
+        //    modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+
+
+
         //}
 
         public static ApplicationDbContext Create()
