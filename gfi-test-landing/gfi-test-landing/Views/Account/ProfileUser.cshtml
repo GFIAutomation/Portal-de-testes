@@ -9,47 +9,78 @@
 
 <div class="form-horizontal">
     <hr />
-    <div class="row">
-        <!-- Message to tell the user -->
-        <div class="alert alert-light" role="alert">
-            After updating all your fields, make sure to save them.
-        </div>
 
-        <!-- Email -->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text col-3" id="basic-addon1">Email</span>
-            </div>
-            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.Email)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
-        </div>
-
-        <!-- Name -->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text col-3" " id="basic-addon1">Name</span>
-            </div>
-            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
-        </div>
-
-        <!-- Phone number -->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text col-3" id="basic-addon1">Phone</span>
-            </div>
-            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.PhoneNumber)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
-        </div>
-    </div>
-    
-    <!-- Profile Picture -->
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="~/images/avatar/" alt="@Html.DisplayNameFor(model => model.ImageUrl)">
-        <div class="card-body">
-            <h5 class="card-title">@Html.DisplayNameFor(model => model.ImageUrl)</h5>
-            <p class="card-text">The upload new image feature is wip.</p>
-            <button type="button" class="btn btn-secondary">Upload image</button>
-        </div>
+    <!-- Message to tell the user -->
+    <div class="alert alert-light" role="alert">
+        After updating all your fields make sure to save them.
     </div>
 
-    <button type="button" class="btn btn-success">Save</button>
-    <button type="button" class="btn btn-danger">Cancel</button>
+    <div class="justify-content-between">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header"><h4>Personal information</h4></div>
+                <div class="card-body card-block">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Username" })
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Surname" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
+                        </div>
+                    </div>
+                    <div class="form-actions form-group">
+                        <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Update" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h4>Password</h4></div>
+                <div class="card-body card-block">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                            <input type="password" class="form-control" placeholder="New password" />
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                            <input type="password" class="form-control" placeholder="Confirm password" />
+                        </div>
+                        <br />
+                        <p class="card-text">Passwords must contain upper and lower case aplhabetic characters, numbers and special characters. Above 6 characters and under 16.</p>
+                        <div class="input-group">
+                            <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Change password" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header"><h4>Picture</h4></div>
+                <img style="width:125px; height:125px; margin-top:5%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/developer.png" alt="@Html.DisplayNameFor(model => model.ImageUrl)">
+                <div class="card-body">
+                    <p class="card-text">Upload only png or jpg under 2MB.</p>
+                    <button type="button" style="border-radius:4px;" class="btn btn-secondary">Upload image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
