@@ -9,73 +9,47 @@
 
 <div class="form-horizontal">
     <hr />
-
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.DisplayNameFor(model => model.Email)
-            </div>
+    <div class="row">
+        <!-- Message to tell the user -->
+        <div class="alert alert-light" role="alert">
+            After updating all your fields, make sure to save them.
         </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.DisplayFor(model => model.Email)
+
+        <!-- Email -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text col-3" id="basic-addon1">Email</span>
             </div>
+            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.Email)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
+        </div>
+
+        <!-- Name -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text col-3" " id="basic-addon1">Name</span>
+            </div>
+            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
+        </div>
+
+        <!-- Phone number -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text col-3" id="basic-addon1">Phone</span>
+            </div>
+            <input type="text" class="form-control" value="@Html.DisplayFor(model => model.PhoneNumber)" placeholder="Email@domain.com" aria-label=@Html.DisplayFor(model => model.Email) aria-describedby="basic-addon1">
         </div>
     </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.DisplayFor(model => model.PhoneNumber)
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.DisplayFor(model => model.ImageUrl)
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-3">
-                @Html.Label("Nome")
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-11">
-                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
-            </div>
+    
+    <!-- Profile Picture -->
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/images/avatar/" alt="@Html.DisplayNameFor(model => model.ImageUrl)">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayNameFor(model => model.ImageUrl)</h5>
+            <p class="card-text">The upload new image feature is wip.</p>
+            <button type="button" class="btn btn-secondary">Upload image</button>
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-10">
-
-
-
-            </div>
-        </div>
-    </div>
+    <button type="button" class="btn btn-success">Save</button>
+    <button type="button" class="btn btn-danger">Cancel</button>
 </div>
-
-
-
-
-@*<p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>*@
