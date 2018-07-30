@@ -29,6 +29,11 @@ namespace gfi_test_landing.Controllers
         [Authorize]
         public ActionResult Register()
         {
+            ViewBag.roleList = new SelectList(db.AspNetRoles.ToList(), "Id", "Name");
+            // ViewBag.roleList1 = db.AspNetRoles.ToList();
+            ViewBag.projectList = new SelectList(db.Project.ToList(), "id", "name");
+            
+
             return View();
         }
 
@@ -38,6 +43,8 @@ namespace gfi_test_landing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+           
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName };
@@ -52,7 +59,14 @@ namespace gfi_test_landing.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Dashboard", "Home");
+                    //return RedirectToAction("Dashboard", "Home");
+
+                    var userId = (from s in db.AspNetUsers
+                                 where s.Email == model.Email
+                                 select s.Id).ToString();
+                    await this.UserManager.AddToRoleAsync(userId, model.Email);
+
+
                 }
                 AddErrors(result);
             }

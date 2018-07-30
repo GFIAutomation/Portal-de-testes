@@ -8,10 +8,10 @@
         <EntityTypeShape EntityType="testLandingModel.C__MigrationHistory" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.Action" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.ActionObject" Width="1.5" PointX="13.25" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="testLandingModel.AspNetRoles" Width="1.5" PointX="1.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetRoles" Width="1.5" PointX="2" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.AspNetUserClaims" Width="1.5" PointX="3" PointY="30.375" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.AspNetUserLogins" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="testLandingModel.AspNetUsers" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetUsers" Width="1.5" PointX="1" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.Attribute" Width="1.5" PointX="7.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.Battery" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.BatteryTest" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
@@ -62,7 +62,8 @@
         <AssociationConnector Association="testLandingModel.FK_ScheduleWeekDays_WeekDays" ManuallyRouted="false" />
         <AssociationConnector Association="testLandingModel.FK_TestAction_Test" ManuallyRouted="false" />
         <AssociationConnector Association="testLandingModel.FK_TestUser_Test" ManuallyRouted="false" />
-        <AssociationConnector Association="testLandingModel.AspNetUserRoles" ManuallyRouted="false" />
+    <!--    <AssociationConnector Association="testLandingModel.AspNetUserRoles" ManuallyRouted="false" />
+      -->
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,6 @@
 ﻿@model gfi_test_landing.Models.RegisterViewModel
+
+
 @{
 
 
@@ -15,7 +17,7 @@
 
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
-   
+
 
 
     @*<div class="animated fadeIn">*@
@@ -63,6 +65,23 @@
                     </div>
                 </div>
 
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label" for="select">Select Role</label></div>
+                    <div class="col-12 col-md-9">
+
+                        @Html.DropDownListFor(m => m.Role, (SelectList)ViewBag.roleList, "--Select Role--", new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label" for="select">Select Project</label></div>
+                    <div class="col-12 col-md-9">
+
+                        @Html.DropDownList("DropdownProject",ViewBag.projectList as SelectList, "--Select Project--", new { @class = "form-control" })
+
+                    </div>
+                </div>
+
                 <div class="form-actions form-group">
                     <input type="submit" class="btn btn-success" value="Register" />
                 </div>
@@ -70,9 +89,9 @@
                 @*</div>*@
             </div>
         </div>
-       
+
     </div>
-        @*</div>*@
+    @*</div>*@
 }
 
 

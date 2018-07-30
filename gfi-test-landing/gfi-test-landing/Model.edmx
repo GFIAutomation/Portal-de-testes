@@ -4,48 +4,48 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="testLandingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="testLandingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
             <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="MigrationId" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="ContextKey" Nullable="false" MaxLength="300" Type="nvarchar" />
+          <Property Name="Model" Nullable="false" Type="varbinary(max)" />
+          <Property Name="ProductVersion" Nullable="false" MaxLength="32" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Action">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="ActionObject">
           <Key>
             <PropertyRef Name="id_action" />
             <PropertyRef Name="id_object" />
           </Key>
-          <Property Name="id_action" Type="int" Nullable="false" />
-          <Property Name="id_object" Type="int" Nullable="false" />
+          <Property Name="id_action" Nullable="false" Type="int" />
+          <Property Name="id_object" Nullable="false" Type="int" />
           <Property Name="last_update" Type="datetime" />
-          <Property Name="status" Type="nvarchar" MaxLength="100" />
+          <Property Name="status" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Id" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="Name" Nullable="false" MaxLength="256" Type="nvarchar" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" Type="nvarchar" />
           <Property Name="ClaimType" Type="nvarchar(max)" />
           <Property Name="ClaimValue" Type="nvarchar(max)" />
         </EntityType>
@@ -55,9 +55,9 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LoginProvider" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="ProviderKey" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" Type="nvarchar" />
           <Property Name="id_project" Type="int" />
         </EntityType>
         <EntityType Name="AspNetUserRoles">
@@ -65,51 +65,51 @@
             <PropertyRef Name="UserId" />
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="RoleId" Nullable="false" MaxLength="128" Type="nvarchar" />
         </EntityType>
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="Id" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="Email" MaxLength="256" Type="nvarchar" />
+          <Property Name="EmailConfirmed" Nullable="false" Type="bit" />
           <Property Name="PasswordHash" Type="nvarchar(max)" />
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
           <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="PhoneNumberConfirmed" Nullable="false" Type="bit" />
+          <Property Name="TwoFactorEnabled" Nullable="false" Type="bit" />
           <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LockoutEnabled" Nullable="false" Type="bit" />
+          <Property Name="AccessFailedCount" Nullable="false" Type="int" />
+          <Property Name="UserName" Nullable="false" MaxLength="256" Type="nvarchar" />
+          <Property Name="ImageUrl" MaxLength="256" Type="nvarchar" />
+          <Property Name="FirstName" MaxLength="100" Type="nvarchar" />
+          <Property Name="LastName" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Attribute">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Battery">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
           <Property Name="id_project" Type="int" />
         </EntityType>
         <EntityType Name="BatteryTest">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="status" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="status" MaxLength="100" Type="nvarchar" />
           <Property Name="created_date" Type="datetime" />
           <Property Name="update_date" Type="datetime" />
           <Property Name="id_environment" Type="int" />
@@ -123,42 +123,42 @@
             <PropertyRef Name="id_user" />
             <PropertyRef Name="id_battery" />
           </Key>
-          <Property Name="id_user" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="id_battery" Type="int" Nullable="false" />
+          <Property Name="id_user" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="id_battery" Nullable="false" Type="int" />
           <Property Name="creation_date" Type="datetime" />
         </EntityType>
         <EntityType Name="Credentials">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="nvarchar" MaxLength="100" />
-          <Property Name="password" Type="nvarchar" MaxLength="100" />
-          <Property Name="img" Type="nvarchar" MaxLength="200" />
-          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="username" MaxLength="100" Type="nvarchar" />
+          <Property Name="password" MaxLength="100" Type="nvarchar" />
+          <Property Name="img" MaxLength="200" Type="nvarchar" />
+          <Property Name="name" MaxLength="200" Type="nvarchar" />
           <Property Name="date" Type="datetime" />
         </EntityType>
         <EntityType Name="Data">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Environment">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="link" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="link" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="date" Type="datetime" />
           <Property Name="id_role" Type="int" />
           <Property Name="id_project" Type="int" />
@@ -168,28 +168,28 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cpu" Type="nvarchar" MaxLength="100" />
-          <Property Name="ram" Type="nvarchar" MaxLength="100" />
-          <Property Name="storage" Type="nvarchar" MaxLength="100" />
-          <Property Name="date_created" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="cpu" MaxLength="100" Type="nvarchar" />
+          <Property Name="ram" MaxLength="100" Type="nvarchar" />
+          <Property Name="storage" MaxLength="100" Type="nvarchar" />
+          <Property Name="date_created" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Method">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Object">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="descritpion" Type="nvarchar" MaxLength="200" />
-          <Property Name="status" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
+          <Property Name="descritpion" MaxLength="200" Type="nvarchar" />
+          <Property Name="status" MaxLength="100" Type="nvarchar" />
           <Property Name="id_method" Type="int" />
           <Property Name="id_attribute" Type="int" />
           <Property Name="id_data" Type="int" />
@@ -198,23 +198,23 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="date_start" Type="datetime" />
           <Property Name="date_end" Type="datetime" />
-          <Property Name="status" Type="nvarchar" MaxLength="100" />
-          <Property Name="general_message" Type="nvarchar" MaxLength="100" />
-          <Property Name="error_message" Type="nvarchar" MaxLength="100" />
-          <Property Name="warning_message" Type="nvarchar" MaxLength="100" />
-          <Property Name="error_type" Type="nvarchar" MaxLength="100" />
-          <Property Name="logs" Type="nvarchar" MaxLength="100" />
+          <Property Name="status" MaxLength="100" Type="nvarchar" />
+          <Property Name="general_message" MaxLength="100" Type="nvarchar" />
+          <Property Name="error_message" MaxLength="100" Type="nvarchar" />
+          <Property Name="warning_message" MaxLength="100" Type="nvarchar" />
+          <Property Name="error_type" MaxLength="100" Type="nvarchar" />
+          <Property Name="logs" MaxLength="100" Type="nvarchar" />
           <Property Name="id_batteryTest" Type="int" />
           <Property Name="id_machine" Type="int" />
         </EntityType>
@@ -222,10 +222,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Nullable="false" Type="int" />
           <Property Name="date" Type="datetime" />
-          <Property Name="status" Type="nvarchar" MaxLength="100" />
-          <Property Name="id_user" Type="nvarchar" MaxLength="128" />
+          <Property Name="status" MaxLength="100" Type="nvarchar" />
+          <Property Name="id_user" MaxLength="128" Type="nvarchar" />
           <Property Name="id_project" Type="int" />
           <Property Name="id_batteryTest" Type="int" />
         </EntityType>
@@ -233,36 +233,36 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="type" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="type" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="date" Type="datetime" />
           <Property Name="date_end" Type="datetime" />
           <Property Name="date_start" Type="datetime" />
-          <Property Name="hour" Type="time" Precision="7" />
+          <Property Name="hour" Precision="7" Type="time" />
         </EntityType>
         <EntityType Name="ScheduleWeekDays">
           <Key>
             <PropertyRef Name="id_schedule" />
             <PropertyRef Name="id_weekDays" />
           </Key>
-          <Property Name="id_schedule" Type="int" Nullable="false" />
-          <Property Name="id_weekDays" Type="int" Nullable="false" />
+          <Property Name="id_schedule" Nullable="false" Type="int" />
+          <Property Name="id_weekDays" Nullable="false" Type="int" />
           <Property Name="date" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
@@ -270,10 +270,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="description" Type="nvarchar" MaxLength="200" />
-          <Property Name="creation_date" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
+          <Property Name="description" MaxLength="200" Type="nvarchar" />
+          <Property Name="creation_date" MaxLength="100" Type="nvarchar" />
           <Property Name="id_project" Type="int" />
         </EntityType>
         <EntityType Name="TestAction">
@@ -281,8 +281,8 @@
             <PropertyRef Name="id_test" />
             <PropertyRef Name="id_action" />
           </Key>
-          <Property Name="id_test" Type="int" Nullable="false" />
-          <Property Name="id_action" Type="int" Nullable="false" />
+          <Property Name="id_test" Nullable="false" Type="int" />
+          <Property Name="id_action" Nullable="false" Type="int" />
           <Property Name="date" Type="datetime" />
           <Property Name="printscreen" Type="image" />
         </EntityType>
@@ -291,20 +291,20 @@
             <PropertyRef Name="id_user" />
             <PropertyRef Name="id_test" />
           </Key>
-          <Property Name="id_user" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="id_test" Type="int" Nullable="false" />
+          <Property Name="id_user" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="id_test" Nullable="false" Type="int" />
           <Property Name="update_date" Type="datetime" />
         </EntityType>
         <EntityType Name="WeekDays">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <Association Name="FK_ActionObject_Action">
-          <End Role="Action" Type="Self.Action" Multiplicity="1" />
-          <End Role="ActionObject" Type="Self.ActionObject" Multiplicity="*" />
+          <End Type="Self.Action" Multiplicity="1" Role="Action" />
+          <End Type="Self.ActionObject" Multiplicity="*" Role="ActionObject" />
           <ReferentialConstraint>
             <Principal Role="Action">
               <PropertyRef Name="id" />
@@ -315,8 +315,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ActionObject_Object">
-          <End Role="Object" Type="Self.Object" Multiplicity="1" />
-          <End Role="ActionObject" Type="Self.ActionObject" Multiplicity="*" />
+          <End Type="Self.Object" Multiplicity="1" Role="Object" />
+          <End Type="Self.ActionObject" Multiplicity="*" Role="ActionObject" />
           <ReferentialConstraint>
             <Principal Role="Object">
               <PropertyRef Name="id" />
@@ -327,8 +327,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AspNetUserLogins_Project">
-          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <End Type="Self.Project" Multiplicity="0..1" Role="Project" />
+          <End Type="Self.AspNetUserLogins" Multiplicity="*" Role="AspNetUserLogins" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="id" />
@@ -339,8 +339,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Battery_Project">
-          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
-          <End Role="Battery" Type="Self.Battery" Multiplicity="*" />
+          <End Type="Self.Project" Multiplicity="0..1" Role="Project" />
+          <End Type="Self.Battery" Multiplicity="*" Role="Battery" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="id" />
@@ -351,8 +351,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryTest_Battery">
-          <End Role="Battery" Type="Self.Battery" Multiplicity="0..1" />
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="*" />
+          <End Type="Self.Battery" Multiplicity="0..1" Role="Battery" />
+          <End Type="Self.BatteryTest" Multiplicity="*" Role="BatteryTest" />
           <ReferentialConstraint>
             <Principal Role="Battery">
               <PropertyRef Name="id" />
@@ -363,8 +363,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryTest_Environment">
-          <End Role="Environment" Type="Self.Environment" Multiplicity="0..1" />
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="*" />
+          <End Type="Self.Environment" Multiplicity="0..1" Role="Environment" />
+          <End Type="Self.BatteryTest" Multiplicity="*" Role="BatteryTest" />
           <ReferentialConstraint>
             <Principal Role="Environment">
               <PropertyRef Name="id" />
@@ -375,8 +375,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryTest_Project">
-          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="*" />
+          <End Type="Self.Project" Multiplicity="0..1" Role="Project" />
+          <End Type="Self.BatteryTest" Multiplicity="*" Role="BatteryTest" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="id" />
@@ -387,8 +387,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryTest_Schedule">
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="*" />
+          <End Type="Self.Schedule" Multiplicity="0..1" Role="Schedule" />
+          <End Type="Self.BatteryTest" Multiplicity="*" Role="BatteryTest" />
           <ReferentialConstraint>
             <Principal Role="Schedule">
               <PropertyRef Name="id" />
@@ -399,8 +399,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryTest_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="*" />
+          <End Type="Self.Test" Multiplicity="0..1" Role="Test" />
+          <End Type="Self.BatteryTest" Multiplicity="*" Role="BatteryTest" />
           <ReferentialConstraint>
             <Principal Role="Test">
               <PropertyRef Name="id" />
@@ -411,8 +411,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryUser_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="BatteryUser" Type="Self.BatteryUser" Multiplicity="*" />
+          <End Type="Self.AspNetUsers" Multiplicity="1" Role="AspNetUsers" />
+          <End Type="Self.BatteryUser" Multiplicity="*" Role="BatteryUser" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -423,8 +423,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BatteryUser_Battery">
-          <End Role="Battery" Type="Self.Battery" Multiplicity="1" />
-          <End Role="BatteryUser" Type="Self.BatteryUser" Multiplicity="*" />
+          <End Type="Self.Battery" Multiplicity="1" Role="Battery" />
+          <End Type="Self.BatteryUser" Multiplicity="*" Role="BatteryUser" />
           <ReferentialConstraint>
             <Principal Role="Battery">
               <PropertyRef Name="id" />
@@ -435,10 +435,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+          <End Type="Self.AspNetUsers" Multiplicity="1" Role="AspNetUsers">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <End Type="Self.AspNetUserClaims" Multiplicity="*" Role="AspNetUserClaims" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -449,10 +449,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+          <End Type="Self.AspNetUsers" Multiplicity="1" Role="AspNetUsers">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <End Type="Self.AspNetUserLogins" Multiplicity="*" Role="AspNetUserLogins" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -463,10 +463,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+          <End Type="Self.AspNetRoles" Multiplicity="1" Role="AspNetRoles">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <End Type="Self.AspNetUserRoles" Multiplicity="*" Role="AspNetUserRoles" />
           <ReferentialConstraint>
             <Principal Role="AspNetRoles">
               <PropertyRef Name="Id" />
@@ -477,10 +477,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+          <End Type="Self.AspNetUsers" Multiplicity="1" Role="AspNetUsers">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <End Type="Self.AspNetUserRoles" Multiplicity="*" Role="AspNetUserRoles" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -491,8 +491,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Object_Attribute">
-          <End Role="Attribute" Type="Self.Attribute" Multiplicity="0..1" />
-          <End Role="Object" Type="Self.Object" Multiplicity="*" />
+          <End Type="Self.Attribute" Multiplicity="0..1" Role="Attribute" />
+          <End Type="Self.Object" Multiplicity="*" Role="Object" />
           <ReferentialConstraint>
             <Principal Role="Attribute">
               <PropertyRef Name="id" />
@@ -503,8 +503,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Object_Data">
-          <End Role="Data" Type="Self.Data" Multiplicity="0..1" />
-          <End Role="Object" Type="Self.Object" Multiplicity="*" />
+          <End Type="Self.Data" Multiplicity="0..1" Role="Data" />
+          <End Type="Self.Object" Multiplicity="*" Role="Object" />
           <ReferentialConstraint>
             <Principal Role="Data">
               <PropertyRef Name="id" />
@@ -515,8 +515,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Object_Method">
-          <End Role="Method" Type="Self.Method" Multiplicity="0..1" />
-          <End Role="Object" Type="Self.Object" Multiplicity="*" />
+          <End Type="Self.Method" Multiplicity="0..1" Role="Method" />
+          <End Type="Self.Object" Multiplicity="*" Role="Object" />
           <ReferentialConstraint>
             <Principal Role="Method">
               <PropertyRef Name="id" />
@@ -527,8 +527,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Report_BatteryTest">
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="0..1" />
-          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <End Type="Self.BatteryTest" Multiplicity="0..1" Role="BatteryTest" />
+          <End Type="Self.Report" Multiplicity="*" Role="Report" />
           <ReferentialConstraint>
             <Principal Role="BatteryTest">
               <PropertyRef Name="id" />
@@ -539,8 +539,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Report_Machine">
-          <End Role="Machine" Type="Self.Machine" Multiplicity="0..1" />
-          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <End Type="Self.Machine" Multiplicity="0..1" Role="Machine" />
+          <End Type="Self.Report" Multiplicity="*" Role="Report" />
           <ReferentialConstraint>
             <Principal Role="Machine">
               <PropertyRef Name="id" />
@@ -551,8 +551,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Type="Self.AspNetUsers" Multiplicity="0..1" Role="AspNetUsers" />
+          <End Type="Self.Request" Multiplicity="*" Role="Request" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -563,8 +563,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_BatteryTest">
-          <End Role="BatteryTest" Type="Self.BatteryTest" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Type="Self.BatteryTest" Multiplicity="0..1" Role="BatteryTest" />
+          <End Type="Self.Request" Multiplicity="*" Role="Request" />
           <ReferentialConstraint>
             <Principal Role="BatteryTest">
               <PropertyRef Name="id" />
@@ -575,8 +575,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Project">
-          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Type="Self.Project" Multiplicity="0..1" Role="Project" />
+          <End Type="Self.Request" Multiplicity="*" Role="Request" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="id" />
@@ -587,8 +587,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScheduleWeekDays_Schedule">
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
-          <End Role="ScheduleWeekDays" Type="Self.ScheduleWeekDays" Multiplicity="*" />
+          <End Type="Self.Schedule" Multiplicity="1" Role="Schedule" />
+          <End Type="Self.ScheduleWeekDays" Multiplicity="*" Role="ScheduleWeekDays" />
           <ReferentialConstraint>
             <Principal Role="Schedule">
               <PropertyRef Name="id" />
@@ -599,8 +599,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScheduleWeekDays_WeekDays">
-          <End Role="WeekDays" Type="Self.WeekDays" Multiplicity="1" />
-          <End Role="ScheduleWeekDays" Type="Self.ScheduleWeekDays" Multiplicity="*" />
+          <End Type="Self.WeekDays" Multiplicity="1" Role="WeekDays" />
+          <End Type="Self.ScheduleWeekDays" Multiplicity="*" Role="ScheduleWeekDays" />
           <ReferentialConstraint>
             <Principal Role="WeekDays">
               <PropertyRef Name="id" />
@@ -611,8 +611,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Test_Project">
-          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
-          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <End Type="Self.Project" Multiplicity="0..1" Role="Project" />
+          <End Type="Self.Test" Multiplicity="*" Role="Test" />
           <ReferentialConstraint>
             <Principal Role="Project">
               <PropertyRef Name="id" />
@@ -623,8 +623,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestAction_Action">
-          <End Role="Action" Type="Self.Action" Multiplicity="1" />
-          <End Role="TestAction" Type="Self.TestAction" Multiplicity="*" />
+          <End Type="Self.Action" Multiplicity="1" Role="Action" />
+          <End Type="Self.TestAction" Multiplicity="*" Role="TestAction" />
           <ReferentialConstraint>
             <Principal Role="Action">
               <PropertyRef Name="id" />
@@ -635,8 +635,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestAction_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="1" />
-          <End Role="TestAction" Type="Self.TestAction" Multiplicity="*" />
+          <End Type="Self.Test" Multiplicity="1" Role="Test" />
+          <End Type="Self.TestAction" Multiplicity="*" Role="TestAction" />
           <ReferentialConstraint>
             <Principal Role="Test">
               <PropertyRef Name="id" />
@@ -647,8 +647,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestUser_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="TestUser" Type="Self.TestUser" Multiplicity="*" />
+          <End Type="Self.AspNetUsers" Multiplicity="1" Role="AspNetUsers" />
+          <End Type="Self.TestUser" Multiplicity="*" Role="TestUser" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -659,8 +659,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestUser_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="1" />
-          <End Role="TestUser" Type="Self.TestUser" Multiplicity="*" />
+          <End Type="Self.Test" Multiplicity="1" Role="Test" />
+          <End Type="Self.TestUser" Multiplicity="*" Role="TestUser" />
           <ReferentialConstraint>
             <Principal Role="Test">
               <PropertyRef Name="id" />
@@ -670,7 +670,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -733,124 +733,124 @@
           <EntitySet Name="TestUser" EntityType="Self.TestUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WeekDays" EntityType="Self.WeekDays" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ActionObject_Action" Association="Self.FK_ActionObject_Action">
-            <End Role="Action" EntitySet="Action" />
-            <End Role="ActionObject" EntitySet="ActionObject" />
+            <End EntitySet="Action" Role="Action" />
+            <End EntitySet="ActionObject" Role="ActionObject" />
           </AssociationSet>
           <AssociationSet Name="FK_ActionObject_Object" Association="Self.FK_ActionObject_Object">
-            <End Role="Object" EntitySet="Object" />
-            <End Role="ActionObject" EntitySet="ActionObject" />
+            <End EntitySet="Object" Role="Object" />
+            <End EntitySet="ActionObject" Role="ActionObject" />
           </AssociationSet>
           <AssociationSet Name="FK_AspNetUserLogins_Project" Association="Self.FK_AspNetUserLogins_Project">
-            <End Role="Project" EntitySet="Project" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+            <End EntitySet="Project" Role="Project" />
+            <End EntitySet="AspNetUserLogins" Role="AspNetUserLogins" />
           </AssociationSet>
           <AssociationSet Name="FK_Battery_Project" Association="Self.FK_Battery_Project">
-            <End Role="Project" EntitySet="Project" />
-            <End Role="Battery" EntitySet="Battery" />
+            <End EntitySet="Project" Role="Project" />
+            <End EntitySet="Battery" Role="Battery" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryTest_Battery" Association="Self.FK_BatteryTest_Battery">
-            <End Role="Battery" EntitySet="Battery" />
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
+            <End EntitySet="Battery" Role="Battery" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryTest_Environment" Association="Self.FK_BatteryTest_Environment">
-            <End Role="Environment" EntitySet="Environment" />
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
+            <End EntitySet="Environment" Role="Environment" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryTest_Project" Association="Self.FK_BatteryTest_Project">
-            <End Role="Project" EntitySet="Project" />
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
+            <End EntitySet="Project" Role="Project" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryTest_Schedule" Association="Self.FK_BatteryTest_Schedule">
-            <End Role="Schedule" EntitySet="Schedule" />
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
+            <End EntitySet="Schedule" Role="Schedule" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryTest_Test" Association="Self.FK_BatteryTest_Test">
-            <End Role="Test" EntitySet="Test" />
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
+            <End EntitySet="Test" Role="Test" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryUser_AspNetUsers" Association="Self.FK_BatteryUser_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="BatteryUser" EntitySet="BatteryUser" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="BatteryUser" Role="BatteryUser" />
           </AssociationSet>
           <AssociationSet Name="FK_BatteryUser_Battery" Association="Self.FK_BatteryUser_Battery">
-            <End Role="Battery" EntitySet="Battery" />
-            <End Role="BatteryUser" EntitySet="BatteryUser" />
+            <End EntitySet="Battery" Role="Battery" />
+            <End EntitySet="BatteryUser" Role="BatteryUser" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="AspNetUserClaims" Role="AspNetUserClaims" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="AspNetUserLogins" Role="AspNetUserLogins" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+            <End EntitySet="AspNetRoles" Role="AspNetRoles" />
+            <End EntitySet="AspNetUserRoles" Role="AspNetUserRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="AspNetUserRoles" Role="AspNetUserRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_Object_Attribute" Association="Self.FK_Object_Attribute">
-            <End Role="Attribute" EntitySet="Attribute" />
-            <End Role="Object" EntitySet="Object" />
+            <End EntitySet="Attribute" Role="Attribute" />
+            <End EntitySet="Object" Role="Object" />
           </AssociationSet>
           <AssociationSet Name="FK_Object_Data" Association="Self.FK_Object_Data">
-            <End Role="Data" EntitySet="Data" />
-            <End Role="Object" EntitySet="Object" />
+            <End EntitySet="Data" Role="Data" />
+            <End EntitySet="Object" Role="Object" />
           </AssociationSet>
           <AssociationSet Name="FK_Object_Method" Association="Self.FK_Object_Method">
-            <End Role="Method" EntitySet="Method" />
-            <End Role="Object" EntitySet="Object" />
+            <End EntitySet="Method" Role="Method" />
+            <End EntitySet="Object" Role="Object" />
           </AssociationSet>
           <AssociationSet Name="FK_Report_BatteryTest" Association="Self.FK_Report_BatteryTest">
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
-            <End Role="Report" EntitySet="Report" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
+            <End EntitySet="Report" Role="Report" />
           </AssociationSet>
           <AssociationSet Name="FK_Report_Machine" Association="Self.FK_Report_Machine">
-            <End Role="Machine" EntitySet="Machine" />
-            <End Role="Report" EntitySet="Report" />
+            <End EntitySet="Machine" Role="Machine" />
+            <End EntitySet="Report" Role="Report" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_AspNetUsers" Association="Self.FK_Request_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Request" EntitySet="Request" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="Request" Role="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_BatteryTest" Association="Self.FK_Request_BatteryTest">
-            <End Role="BatteryTest" EntitySet="BatteryTest" />
-            <End Role="Request" EntitySet="Request" />
+            <End EntitySet="BatteryTest" Role="BatteryTest" />
+            <End EntitySet="Request" Role="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Project" Association="Self.FK_Request_Project">
-            <End Role="Project" EntitySet="Project" />
-            <End Role="Request" EntitySet="Request" />
+            <End EntitySet="Project" Role="Project" />
+            <End EntitySet="Request" Role="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_ScheduleWeekDays_Schedule" Association="Self.FK_ScheduleWeekDays_Schedule">
-            <End Role="Schedule" EntitySet="Schedule" />
-            <End Role="ScheduleWeekDays" EntitySet="ScheduleWeekDays" />
+            <End EntitySet="Schedule" Role="Schedule" />
+            <End EntitySet="ScheduleWeekDays" Role="ScheduleWeekDays" />
           </AssociationSet>
           <AssociationSet Name="FK_ScheduleWeekDays_WeekDays" Association="Self.FK_ScheduleWeekDays_WeekDays">
-            <End Role="WeekDays" EntitySet="WeekDays" />
-            <End Role="ScheduleWeekDays" EntitySet="ScheduleWeekDays" />
+            <End EntitySet="WeekDays" Role="WeekDays" />
+            <End EntitySet="ScheduleWeekDays" Role="ScheduleWeekDays" />
           </AssociationSet>
           <AssociationSet Name="FK_Test_Project" Association="Self.FK_Test_Project">
-            <End Role="Project" EntitySet="Project" />
-            <End Role="Test" EntitySet="Test" />
+            <End EntitySet="Project" Role="Project" />
+            <End EntitySet="Test" Role="Test" />
           </AssociationSet>
           <AssociationSet Name="FK_TestAction_Action" Association="Self.FK_TestAction_Action">
-            <End Role="Action" EntitySet="Action" />
-            <End Role="TestAction" EntitySet="TestAction" />
+            <End EntitySet="Action" Role="Action" />
+            <End EntitySet="TestAction" Role="TestAction" />
           </AssociationSet>
           <AssociationSet Name="FK_TestAction_Test" Association="Self.FK_TestAction_Test">
-            <End Role="Test" EntitySet="Test" />
-            <End Role="TestAction" EntitySet="TestAction" />
+            <End EntitySet="Test" Role="Test" />
+            <End EntitySet="TestAction" Role="TestAction" />
           </AssociationSet>
           <AssociationSet Name="FK_TestUser_AspNetUsers" Association="Self.FK_TestUser_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="TestUser" EntitySet="TestUser" />
+            <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+            <End EntitySet="TestUser" Role="TestUser" />
           </AssociationSet>
           <AssociationSet Name="FK_TestUser_Test" Association="Self.FK_TestUser_Test">
-            <End Role="Test" EntitySet="Test" />
-            <End Role="TestUser" EntitySet="TestUser" />
+            <End EntitySet="Test" Role="Test" />
+            <End EntitySet="TestUser" Role="TestUser" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1695,33 +1695,33 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="version" Type="Int32" Mode="In" />
+            <Parameter Name="definition" Type="Binary" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="version" Type="Int32" Mode="In" />
+            <Parameter Name="definition" Type="Binary" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(testLandingModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(testLandingModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Type="String" Mode="In" />
+            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="new_diagramname" Type="String" Mode="In" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
