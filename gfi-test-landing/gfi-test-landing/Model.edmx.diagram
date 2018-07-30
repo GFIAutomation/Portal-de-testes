@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="testLandingModel.C__MigrationHistory" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.Action" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.ActionObject" Width="1.5" PointX="13.25" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="testLandingModel.AspNetRoles" Width="1.5" PointX="2" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testLandingModel.AspNetRoles" Width="1.5" PointX="1.375" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.AspNetUserClaims" Width="1.5" PointX="3" PointY="30.375" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.AspNetUserLogins" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="testLandingModel.AspNetUsers" Width="1.5" PointX="1" PointY="4.75" IsExpanded="true" />
@@ -62,8 +62,8 @@
         <AssociationConnector Association="testLandingModel.FK_ScheduleWeekDays_WeekDays" ManuallyRouted="false" />
         <AssociationConnector Association="testLandingModel.FK_TestAction_Test" ManuallyRouted="false" />
         <AssociationConnector Association="testLandingModel.FK_TestUser_Test" ManuallyRouted="false" />
-    <!--    <AssociationConnector Association="testLandingModel.AspNetUserRoles" ManuallyRouted="false" />
-      -->
+        <AssociationConnector Association="testLandingModel.AspNetUserRoles" ManuallyRouted="false" />
+      
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
