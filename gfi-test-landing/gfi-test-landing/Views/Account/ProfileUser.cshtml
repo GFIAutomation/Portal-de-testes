@@ -46,27 +46,31 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header"><h4>Password</h4></div>
-                <div class="card-body card-block">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                            <input type="password" class="form-control" placeholder="New password" />
-                        </div>
-                        <br />
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                            <input type="password" class="form-control" placeholder="Confirm password" />
-                        </div>
-                        <br />
-                        <p class="card-text">Passwords must contain upper and lower case aplhabetic characters, numbers and special characters. Above 6 characters and under 16.</p>
-                        <div class="input-group">
-                            <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Change password" />
+            <!-- Password change form -->
+            @using (Html.BeginForm())
+            {
+                <div class="card">
+                    <div class="card-header"><h4>Password</h4></div>
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                <input type="password" class="form-control" placeholder="New password" />
+                            </div>
+                            <br />
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                <input type="password" class="form-control" placeholder="Confirm password" />
+                            </div>
+                            <br />
+                            <p class="card-text">Passwords must contain upper and lower case aplhabetic characters, numbers and special characters. Above 6 characters and under 16.</p>
+                            <div class="input-group">
+                                <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Change password" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
 
         </div>
 
