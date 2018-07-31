@@ -6,17 +6,36 @@
 }
 
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-sm"></div>
-        @*<form class="form-signin col-sm">*@
+        <div class="col-sm-8">
+            <div class="text-light">
+                <div class="user-area dropdown float-right">
+
+                    <div class="header-menu" id="language-select">
+                        <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
+                            <img src="~/images/flag/uk.png" style=" width:40px "/>
+                        </a>
+                        <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null)">
+                            <img src="~/images/flag/pt.png" style=" width:40px " />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+
+        <div class="row">
+            <div class="col-sm"></div>
 
             <div class="text-center mb-4">
                 <img class="mb-4" src="~/images/logo4.png" alt="" />
 
+                <h1 class="h3 mb-3 font-weight-normal">@(gfi_test_landing.Resources.Login.Title)</h1>
 
-                <h1 class="h3 mb-3 font-weight-normal">The testing platform</h1>
-
-                <p>This is a placeholder for our testing platform. In order to test several automation technologies this will be our project.</p>
+                <p>@(gfi_test_landing.Resources.Login.SubTitle)</p>
 
 
 
@@ -40,33 +59,37 @@
                                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 
                                 </div>
+
+
+
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-12">
                                         <div class="checkbox">
                                             @Html.CheckBoxFor(m => m.RememberMe)
-                                            @Html.LabelFor(m => m.RememberMe)
+                                            @*@Html.LabelFor(m => m.RememberMe)*@
+                                            @(gfi_test_landing.Resources.Login.RememberMe)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block" />
+                                    <input type="submit" value="@(gfi_test_landing.Resources.Login.BtLogin)" class="btn btn-lg btn-primary btn-block" />
 
                                 </div>
-                                <p>
-                        @Html.ActionLink("Register as a new user", "Register")
-                    </p>
+                                @*<p>
+                                    @Html.ActionLink("Register as a new user", "Register")
+                                </p>*@
                             </div>
 
                         }
                     </section>
                 </div>
             </div>
-        @*</form>*@
-        <div class="col-sm"></div>
+            @*</form>*@
+            <div class="col-sm"></div>
+
+        </div>
 
     </div>
-
-</div>
 
         
 

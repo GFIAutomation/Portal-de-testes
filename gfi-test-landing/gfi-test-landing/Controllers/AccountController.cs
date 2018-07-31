@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gfi_test_landing.Models;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace gfi_test_landing.Controllers
 {
@@ -26,7 +28,7 @@ namespace gfi_test_landing.Controllers
         public AccountController()
         {
         }
-
+        
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -73,8 +75,11 @@ namespace gfi_test_landing.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

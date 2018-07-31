@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using gfi_test_landing;
@@ -15,8 +17,12 @@ namespace gfi_test_landing.Controllers
         private testLandingEntities db = new testLandingEntities();
 
         // GET: Tests
-        public ActionResult Index()
+        public ActionResult Index(string language)
         {
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            
             var test = db.Test.Include(t => t.Project);
             return View(test.ToList());
         }

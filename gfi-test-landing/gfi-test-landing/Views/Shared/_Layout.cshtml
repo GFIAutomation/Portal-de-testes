@@ -36,11 +36,11 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>@(gfi_test_landing.Resources.Layout.Dashboard) </a>
                     </li>
                     <h3 class="menu-title">Options</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Project</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>@(gfi_test_landing.Resources.Layout.Project)</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="ti-plus"></i><a href="/Home/Button">Create</a></li>
                             <li><i class="menu-icon fa fa-list-ul"></i><a href="ui-badges.html">List</a></li>
@@ -127,47 +127,43 @@
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
                         @Html.AntiForgeryToken()
-                        <div class="col-sm-5">
-                            <div class="user-area dropdown float-right">
-                                <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" @*onclick="functionProfile()"*@ aria-expanded="false">
-                                    <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
-                                </a>
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" @*onclick="functionProfile()"*@ aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
+                        </a>
+                        <a href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
+                                <img src="~/images/flag/uk.png" style=" width:40px " />
+                            </a>
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null)">
+                                <img src="~/images/flag/pt.png" style=" width:40px " />
+                            </a>
+                        </a>
+                        <div class="user-menu dropdown-menu" id="users-menu">
 
-                                <div class="user-menu dropdown-menu" id="users-menu">
+                            <a class="nav-link" href="#">
+                                @*@Html.DisplayFor(User.Identity.GetUserName(), "Index", "Manage",  new { @class = "fa fa-user" })*@
+                                @*@Html.DisplayFor(model => model.Email.FirstOrDefault())*@
+                                <i class="fa ti-user"> </i> Olá @Session["FirstName"]
+                            </a>
+                            <hr>
+                            <a class="nav-link" href="/Account/ProfileUser"><i class="fa fa-user"></i> My Profile</a>
 
-                                    <a class="nav-link" href="#">
-                                        @*@Html.DisplayFor(User.Identity.GetUserName(), "Index", "Manage",  new { @class = "fa fa-user" })*@
-                                        @*@Html.DisplayFor(model => model.Email.FirstOrDefault())*@
-                                        <i class="fa ti-user"> </i> Olá @Session["FirstName"]
-                                    </a>
-                                    <hr>
-                                    <a class="nav-link" href="/Account/ProfileUser"><i class="fa fa-user"></i> My Profile</a>
+                            @*<a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>*@
 
-                                    @*<a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>*@
+                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
-
-                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i> Logout</a>
-                                </div>
-                            </div>
-
-                            <div class="language-select dropdown" id="language-select">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" @*onclick="functionFlag()"*@ id="language" aria-haspopup="true" aria-expanded="true">
-                                    <i class="flag-icon flag-icon-uk"></i>
-                                </a>
-                                <div id="flag" class="dropdown-menu" aria-labelledby="language">
-                                    <div class="dropdown-item">
-                                        <i class="flag-icon flag-icon-pt"></i>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <i class="flag-icon flag-icon-uk"></i>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
+                    </div>
+                    @*<ul>
+            <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-US" }, null) </li>
+            <li>@Html.ActionLink("Portugues", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null) </li>
+        </ul>*@
+                </div>
                     }
-                }
+                                        }
             </div>
 
         </header><!-- /header -->

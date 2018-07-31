@@ -14,12 +14,18 @@ namespace gfi_test_landing
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+                name: "Language",
+                url: "{language}/{controller}/{action}/{id}",
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
+                constraints: new { language = @"en-UK|pt-PT"}
             );
 
-           
+            routes.MapRoute(
+              name: "Default",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional, language = "en-UK" }
+          );
+
         }
     }
 }
