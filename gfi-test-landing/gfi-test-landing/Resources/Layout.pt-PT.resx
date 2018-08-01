@@ -117,10 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administração</value>
+  </data>
+  <data name="Battery" xml:space="preserve">
+    <value>Bateria</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="CreateProject" xml:space="preserve">
+    <value>Criar Projeto</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Criar Utilizadores</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Gráficos</value>
   </data>
+  <data name="Environments" xml:space="preserve">
+    <value>Ambiente</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Listar</value>
+  </data>
+  <data name="ListProject" xml:space="preserve">
+    <value>Listar Projetos</value>
+  </data>
+  <data name="Objects" xml:space="preserve">
+    <value>Objetos</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Opções</value>
+  </data>
   <data name="Project" xml:space="preserve">
     <value>Projeto</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Relatórios</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Agendamento</value>
+  </data>
+  <data name="Tests" xml:space="preserve">
+    <value>Testes</value>
+  </data>
+  <data name="UserList" xml:space="preserve">
+    <value>Listar Utilizadores</value>
   </data>
 </root>
