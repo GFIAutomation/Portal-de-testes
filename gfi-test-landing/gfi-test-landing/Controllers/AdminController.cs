@@ -72,13 +72,20 @@ namespace gfi_test_landing.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName,ImageUrl,FirstName,LastName")] AspNetUsers aspNetUsers)
+        public ActionResult Edit([Bind(Include = "Id,Email,PhoneNumber,ImageUrl,FirstName,LastName")] AspNetUsers aspNetUsers)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(aspNetUsers).State = EntityState.Modified;
+                AspNetUsers userRow  = db.AspNetUsers.Single(u => u.Id == aspNetUsers.Id);
+                userRow.Email = aspNetUsers.Email;
+                userRow.PhoneNumber = aspNetUsers.PhoneNumber;
+                userRow.ImageUrl = aspNetUsers.ImageUrl;
+                userRow.FirstName = aspNetUsers.FirstName;
+                userRow.LastName = aspNetUsers.LastName;
+                db.Entry(userRow).State = EntityState.Modified;
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UserList");
             }
             return View(aspNetUsers);
         }
