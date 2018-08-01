@@ -29,7 +29,19 @@ namespace gfi_test_landing
                      "~/Content/js/dashboard.js",
                      "~/Content/js/widgets.js",
                      "~/Content/js/dropdown.js"));
-           
+
+                       bundles.Add(new ScriptBundle("~/Content/TableJS").Include("~/Content/js/lib/data-table/datatables.min.js",
+                       "~/Content/js/lib/data-table/dataTables.bootstrap.min.js",
+                       "~/Content/js/lib/data-table/dataTables.buttons.min.js",
+                       "~/Content/js/lib/data-table/buttons.bootstrap.min.js",
+                       "~/Content/js/lib/data-table/jszip.min.js",
+                       "~/Content/js/lib/data-table/pdfmake.min.js",
+                       "~/Content/js/lib/data-table/vfs_fonts.js",
+                       "~/Content/js/lib/data-table/buttons.html5.min.js",
+                       "~/Content/js/lib/data-table/buttons.print.min.js",
+                        "~/Content/js/lib/data-table/buttons.colVis.min.js",
+                         "~/Content/js/lib/data-table/datatables-init.js"
+                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/normalize.css",

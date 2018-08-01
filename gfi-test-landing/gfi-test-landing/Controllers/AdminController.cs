@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gfi_test_landing.Models;
 using System.Data.SqlClient;
+using System.Data.Entity;
+using System.Net;
 
 namespace gfi_test_landing.Controllers
 {
@@ -24,15 +26,110 @@ namespace gfi_test_landing.Controllers
         private ApplicationUserManager _userManager;
         private testLandingEntities db = new testLandingEntities();
 
+
         //
-        // GET: /Account/Register
+        //GET: /Admin/UserList
         [Authorize]
+        public ActionResult UserList()
+        {
+            var userList = db.AspNetUsers.Select(t => t);
+            return View(userList.ToList());
+            
+        }
+
+        // GET: AspNetUsers/Details/5
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetUsers);
+        }
+
+        // GET: AspNetUsers/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetUsers);
+        }
+
+        // POST: AspNetUsers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName,ImageUrl,FirstName,LastName")] AspNetUsers aspNetUsers)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(aspNetUsers).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aspNetUsers);
+        }
+
+        // GET: AspNetUsers/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetUsers);
+        }
+
+        // POST: AspNetUsers/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            db.AspNetUsers.Remove(aspNetUsers);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    
+
+    //
+    // GET: /Admin/Register
+    [Authorize]
         public ActionResult Register()
         {
-            ViewBag.roleList = new SelectList(db.AspNetRoles.ToList(), "Id", "Name");
-            // ViewBag.roleList1 = db.AspNetRoles.ToList();
-            ViewBag.projectList = new SelectList(db.Project.ToList(), "id", "name");
-            
+
+            if (ViewBag.roleList == null && ViewBag.projectList == null)
+            {
+                getRolesAndProjectsDropDown();
+            }
+
 
             return View();
         }
@@ -43,16 +140,23 @@ namespace gfi_test_landing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-           
+            if(ViewBag.roleList==null && ViewBag.projectList == null)
+            {
+                getRolesAndProjectsDropDown();
+            }
+            
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await UserManager.CreateAsync(user, model.Password);
+               
+           
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
+                   
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -60,11 +164,13 @@ namespace gfi_test_landing.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     //return RedirectToAction("Dashboard", "Home");
+                    //var userId = User.Identity.GetUserId();
+                    //var userId = (from s in db.AspNetUsers
+                    //            where s.Email == model.Email
+                    //             select s.Id).ToString();
+                   // await this.UserManager.AddToRolesAsync(user.Id,model.NameRole);
 
-                    var userId = (from s in db.AspNetUsers
-                                 where s.Email == model.Email
-                                 select s.Id).ToString();
-                    await this.UserManager.AddToRoleAsync(userId, model.Email);
+                    saveUserProject(model, user);
 
 
                 }
@@ -99,6 +205,45 @@ namespace gfi_test_landing.Controllers
             }
         }
 
+        private void getRolesAndProjectsDropDown()
+        {
+            var roleIDs = db.AspNetRoles.Select(x => x);
+            var projectIDs = db.Project.Select(x => x);
+            List<SelectListItem> items = new List<SelectListItem>();
+            foreach (var t in roleIDs)
+            {
+                SelectListItem s = new SelectListItem();
+                s.Text = t.Name.ToString();
+                s.Value = t.Id.ToString();
+                items.Add(s);
+            }
+            ViewBag.roleList = items;
+
+            List<SelectListItem> itemsProject = new List<SelectListItem>();
+            foreach (var p in projectIDs)
+            {
+                SelectListItem a = new SelectListItem();
+                a.Text = p.name.ToString();
+                a.Value = p.id.ToString();
+                itemsProject.Add(a);
+            }
+            ViewBag.roleList = items;
+            ViewBag.projectList = itemsProject;
+        }
+
+        private void saveUserProject(RegisterViewModel model, ApplicationUser user)
+        {
+            UserRole userRole = new UserRole();
+
+            userRole.id_project = model.IdProject;
+            userRole.UserId = user.Id;
+            userRole.RoleId = model.NameRole;
+            userRole.date = DateTime.Now;
+
+            db.UserRole.Add(userRole);
+
+            db.SaveChanges();
+        }
 
         #region Helpers
         // Used for XSRF protection when adding external logins

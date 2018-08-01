@@ -12,21 +12,18 @@ namespace gfi_test_landing
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRoles
+    public partial class Component
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetRoles()
+        public Component()
         {
-            this.AspNetUserRoles = new HashSet<AspNetUserRoles>();
-            this.UserRole = new HashSet<UserRole>();
+            this.DisplayComponent = new HashSet<DisplayComponent>();
         }
     
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRole { get; set; }
+        public virtual ICollection<DisplayComponent> DisplayComponent { get; set; }
     }
 }

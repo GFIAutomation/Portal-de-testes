@@ -27,6 +27,7 @@ namespace gfi_test_landing
         public string description { get; set; }
         public string creation_date { get; set; }
         public Nullable<int> id_project { get; set; }
+        public string broswer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BatteryTest> BatteryTest { get; set; }

@@ -212,6 +212,9 @@
     <Compile Include="AspNetUserLogins.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetUserRoles.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AspNetUsers.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -227,6 +230,9 @@
     <Compile Include="BatteryUser.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Component.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -235,10 +241,10 @@
     <Compile Include="Credentials.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="C__MigrationHistory.cs">
+    <Compile Include="Data.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs">
+    <Compile Include="DisplayComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Environment.cs">
@@ -275,6 +281,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserProjectModel.cs" />
     <Compile Include="Object.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -314,6 +321,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TestUser.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="WeekDays.cs">
@@ -1575,6 +1585,11 @@
     <Content Include="Views\Account\ProfileUser.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Admin\UserList.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -100,7 +100,11 @@ namespace gfi_test_landing.Models
         public string ImageUrl { get; set; }
 
         [Display(Name = "Role")]
-        public List<string> Role { get; set; }
+        public string NameRole { get; set; }
+      
+
+        [Display(Name = "Project")]
+        public int IdProject { get; set; }
     }
 
     public class ResetPasswordViewModel

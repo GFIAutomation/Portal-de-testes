@@ -27,19 +27,21 @@ namespace gfi_test_landing
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Action> Action { get; set; }
         public virtual DbSet<ActionObject> ActionObject { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Attribute> Attribute { get; set; }
         public virtual DbSet<Battery> Battery { get; set; }
         public virtual DbSet<BatteryTest> BatteryTest { get; set; }
         public virtual DbSet<BatteryUser> BatteryUser { get; set; }
+        public virtual DbSet<Component> Component { get; set; }
         public virtual DbSet<Credentials> Credentials { get; set; }
         public virtual DbSet<Data> Data { get; set; }
+        public virtual DbSet<DisplayComponent> DisplayComponent { get; set; }
         public virtual DbSet<Environment> Environment { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Machine> Machine { get; set; }
@@ -55,6 +57,7 @@ namespace gfi_test_landing
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<TestAction> TestAction { get; set; }
         public virtual DbSet<TestUser> TestUser { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<WeekDays> WeekDays { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

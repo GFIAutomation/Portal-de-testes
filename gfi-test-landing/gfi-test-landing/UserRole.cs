@@ -12,11 +12,15 @@ namespace gfi_test_landing
     using System;
     using System.Collections.Generic;
     
-    public partial class C__MigrationHistory
+    public partial class UserRole
     {
-        public string MigrationId { get; set; }
-        public string ContextKey { get; set; }
-        public byte[] Model { get; set; }
-        public string ProductVersion { get; set; }
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
+        public int id_project { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+    
+        public virtual AspNetRoles AspNetRoles { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual Project Project { get; set; }
     }
 }
