@@ -32,9 +32,7 @@ namespace gfi_test_landing.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-       : base("gfipt0581.testLanding.dbo")
-        //: base("gfipt0583.testLanding.dbo")
-        //: base("gfipt0369.testLanding.dbo")
+       : base("gfiTestLanding")
         {
         }
 
