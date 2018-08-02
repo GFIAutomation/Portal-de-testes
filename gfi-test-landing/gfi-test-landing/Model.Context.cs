@@ -162,5 +162,7 @@ namespace gfi_test_landing
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+
+        public System.Data.Entity.DbSet<gfi_test_landing.Models.UserRoleProjectModel> UserRoleProjectModels { get; set; }
     }
 }

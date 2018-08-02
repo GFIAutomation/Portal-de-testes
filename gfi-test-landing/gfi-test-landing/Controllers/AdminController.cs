@@ -17,7 +17,7 @@ using System.Net;
 namespace gfi_test_landing.Controllers
 {
 
-   
+
 
     [Authorize]
     public class AdminController : Controller
@@ -34,7 +34,7 @@ namespace gfi_test_landing.Controllers
         {
             var userList = db.AspNetUsers.Select(t => t);
             return View(userList.ToList());
-            
+
         }
 
         // GET: AspNetUsers/Details/5
@@ -44,12 +44,56 @@ namespace gfi_test_landing.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            
+          
+
+            //if (userRoleProjectModel != null)
+            //{
+            //    _RoleProjectByUser( roleUserByProj);
+            //    //PartialView("~/Views/Shared/_ListProjectUser.cshtml", model);
+            //}
+
             if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
+
+
             return View(aspNetUsers);
+        }
+
+
+        //GET  PartialView AspNetUsers/Details/5
+        public ActionResult _RoleProjectByUser(string id)
+        {
+            IEnumerable<RoleProjectByUserModel> roleUserByProj = (from ur in db.UserRole
+                                                                  join p in db.Project on ur.id_project equals p.id
+                                                                  join r in db.AspNetRoles on ur.RoleId equals r.Id
+                                                                  where ur.UserId == id
+                                                                  select new RoleProjectByUserModel()
+                                                                  {
+                                                                      IdUser = id,
+                                                                      IdRole = r.Id,
+                                                                      IdProject = p.id,
+                                                                      NameRole = r.Name,
+                                                                      NameProject = p.name,
+                                                                      DescriptionProject = p.description
+                                                                  }).ToList();
+
+            UserRoleProjectModel userRoleProjectModel = new UserRoleProjectModel
+            {
+                //Id = id,
+                RoleProjetByUser = roleUserByProj
+            };
+            if (userRoleProjectModel == null)
+            {
+                //Then Error
+               
+              }
+            return PartialView(roleUserByProj);
+
         }
 
         // GET: AspNetUsers/Edit/5
@@ -76,7 +120,7 @@ namespace gfi_test_landing.Controllers
         {
             if (ModelState.IsValid)
             {
-                AspNetUsers userRow  = db.AspNetUsers.Single(u => u.Id == aspNetUsers.Id);
+                AspNetUsers userRow = db.AspNetUsers.Single(u => u.Id == aspNetUsers.Id);
                 userRow.Email = aspNetUsers.Email;
                 userRow.PhoneNumber = aspNetUsers.PhoneNumber;
                 userRow.ImageUrl = aspNetUsers.ImageUrl;
@@ -124,11 +168,11 @@ namespace gfi_test_landing.Controllers
             }
             base.Dispose(disposing);
         }
-    
 
-    //
-    // GET: /Admin/Register
-    [Authorize]
+
+        //
+        // GET: /Admin/Register
+        [Authorize]
         public ActionResult Register()
         {
 
@@ -147,23 +191,23 @@ namespace gfi_test_landing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if(ViewBag.roleList==null && ViewBag.projectList == null)
+            if (ViewBag.roleList == null && ViewBag.projectList == null)
             {
                 getRolesAndProjectsDropDown();
             }
-            
+
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await UserManager.CreateAsync(user, model.Password);
-               
-           
+
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                   
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -175,7 +219,7 @@ namespace gfi_test_landing.Controllers
                     //var userId = (from s in db.AspNetUsers
                     //            where s.Email == model.Email
                     //             select s.Id).ToString();
-                   // await this.UserManager.AddToRolesAsync(user.Id,model.NameRole);
+                    // await this.UserManager.AddToRolesAsync(user.Id,model.NameRole);
 
                     saveUserProject(model, user);
 
