@@ -243,6 +243,9 @@
     <Compile Include="Data.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DisplayComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -282,6 +285,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Models\UserProjectModel.cs" />
+    <Compile Include="Models\UserRoleProjectModel.cs" />
     <Compile Include="Object.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -324,14 +328,8 @@
     <Compile Include="ScheduleWeekDays.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="Step.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
@@ -842,19 +840,15 @@
     <Content Include="Views\Account\ProfileUser.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
-    <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Admin\UserList.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
-    <Content Include="Views\Tests\Create.cshtml" />
-    <Content Include="Views\Tests\Delete.cshtml" />
-    <Content Include="Views\Tests\Details.cshtml" />
-    <Content Include="Views\Tests\Edit.cshtml" />
-    <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Shared\_RoleProjectByUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Lang\" />
     <Folder Include="Views\LocalisationAttribute\" />
     <Folder Include="Views\Localized\" />

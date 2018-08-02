@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 
-<div>
+@*<div>
     <h4>AspNetUsers</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -71,6 +71,70 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+   
+</p>*@
+
+
+<div class="form-horizontal disabled">
+    <hr />
+
+    <!-- Message to tell the user -->
+    <div class="alert alert-light" role="alert">
+        After updating all your fields make sure to save them.
+    </div>
+
+    <div class="justify-content-between">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header"><h4>Personal information</h4></div>
+                <div class="card-body card-block">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            @Html.TextBoxFor(m => m.FirstName, new { @disabled = "", @class = "form-control", @placeholder = "Username" })
+                            @Html.TextBoxFor(m => m.LastName, new { @disabled = "", @class = "form-control", @placeholder = "Surname" })
+                        </div>
+                    </div>
+                    <div class="form-group disabled">
+                        <div class="input-group disabled">
+                            <div class="input-group-addon" disabled><i class="fa fa-envelope"></i></div>
+                            @Html.TextBoxFor(m => m.Email, new { @disabled = "", @class = "form-control", @placeholder = "Email" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @disabled = "", @class = "form-control", @placeholder = "Phone Number" })
+                        </div>
+                    </div>
+                    @*<div class="form-actions form-group">
+                            <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Update" />
+                        </div>*@
+                </div>
+            </div>
+
+            <!-- Password change form -->
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "UserList")
+
+
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header"><h4>Picture</h4></div>
+                <img style="width:125px; height:125px; margin-top:5%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/developer.png" alt="@Html.DisplayNameFor(model => model.ImageUrl)">
+                @*<div class="card-body">
+                        <p class="card-text">Upload only png or jpg under 2MB.</p>
+                        <button type="button" style="border-radius:4px;" class="btn btn-secondary">Upload image</button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+
+    @{Html.RenderAction("_RoleProjectByUser", "Admin", new { id = Model.Id });}
+
+</div>
