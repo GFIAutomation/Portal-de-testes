@@ -129,14 +129,15 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
+                        @*<button class="search-trigger"><i class="fa fa-search"></i></button>
+        <div class="form-inline">
+            <form class="search-form">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+            </form>
+        </div>*@
+                        @*<img src="~/images/company/example.png" />*@
+                        <img src="~/images/company/example.png" style="width:100px"/>
                     </div>
                 </div>
                 @if (Request.IsAuthenticated)
@@ -150,11 +151,11 @@
                             <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
                         </a>
                         <a href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
-                                <img src="~/images/flag/uk.png" style=" width:40px " />
+                            <a  href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
+                                <img src="~/images/flag/uk.png" style=" width:40px "/>
                             </a>
                             <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null)">
-                                <img src="~/images/flag/pt.png" style=" width:40px " />
+                                <img src="~/images/flag/pt.png" style=" width:40px "/>
                             </a>
                         </a>
                         <div class="user-menu dropdown-menu" id="users-menu">

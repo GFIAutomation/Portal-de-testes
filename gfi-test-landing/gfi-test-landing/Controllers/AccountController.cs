@@ -25,6 +25,13 @@ namespace gfi_test_landing.Controllers
 
         private AspNetUsers user = new AspNetUsers();
 
+        private void changeLanguage(string language)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+        }
+
+
         public AccountController()
         {
         }
