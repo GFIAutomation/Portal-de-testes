@@ -6,6 +6,9 @@
 <link href="~/Content/css/lib/datatable/dataTables.bootstrap.min.css" rel="stylesheet" />
 <h2>All Tests</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -23,6 +26,9 @@
                                     </th>
                                     <th>
                                         @Html.Label("Creation Date:")
+                                    </th>
+                                    <th>
+                                        @Html.Label("Broswer:")
                                     </th>
                                     <th>
                                         @Html.Label("Project Name:")
@@ -45,6 +51,9 @@
                                             @Html.DisplayFor(modelItem => item.creation_date)
                                         </td>
                                         <td>
+                                            @Html.DisplayFor(modelItem => item.broswer)
+                                        </td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.Project.name)
                                         </td>
                                         <td>
@@ -63,6 +72,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="~/Content/js/lib/data-table/datatables.min.js"></script>
 <script src="~/Content/js/lib/data-table/dataTables.bootstrap.min.js"></script>
