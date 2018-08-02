@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gfi_test_landing.Models;
+using System.Threading;
+using System.Globalization;
 
 namespace gfi_test_landing.Controllers
 {
@@ -15,6 +17,12 @@ namespace gfi_test_landing.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        private void changeLanguage(string language)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+        }
 
         public ManageController()
         {

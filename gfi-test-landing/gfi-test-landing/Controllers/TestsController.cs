@@ -10,19 +10,22 @@ using System.Web;
 using System.Web.Mvc;
 using gfi_test_landing;
 
-namespace gfi_test_landing.Controllers
+namespace gfi_test_landing.Models
 {
     public class TestsController : Controller
     {
+        private void changeLanguage(string language)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+        }
+
         private testLandingEntities db = new testLandingEntities();
 
         // GET: Tests
         public ActionResult Index(string language)
         {
-
-            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
-            
+            changeLanguage(language);
             var test = db.Test.Include(t => t.Project);
             return View(test.ToList());
         }
@@ -43,8 +46,9 @@ namespace gfi_test_landing.Controllers
         }
 
         // GET: Tests/Create
-        public ActionResult Create()
+        public ActionResult Create(string language)
         {
+            changeLanguage(language);
             ViewBag.id_project = new SelectList(db.Project, "id", "name");
             return View();
         }
@@ -54,8 +58,9 @@ namespace gfi_test_landing.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,description,id_project")] Test test)
+        public ActionResult Create([Bind(Include = "id,name,description,id_project,broswer")] Test test, string language)
         {
+            changeLanguage(language);
             if (ModelState.IsValid)
             {
                 test.creation_date = DateTime.Now.ToString();
@@ -89,7 +94,7 @@ namespace gfi_test_landing.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,description,creation_date,id_project")] Test test)
+        public ActionResult Edit([Bind(Include = "id,name,description,creation_date,id_project,broswer")] Test test)
         {
             if (ModelState.IsValid)
             {

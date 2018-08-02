@@ -13,6 +13,7 @@ using gfi_test_landing.Models;
 using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Net;
+using System.Threading;
 
 namespace gfi_test_landing.Controllers
 {
@@ -26,6 +27,11 @@ namespace gfi_test_landing.Controllers
         private ApplicationUserManager _userManager;
         private testLandingEntities db = new testLandingEntities();
 
+        private void changeLanguage(string language)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+        }
 
         //
         //GET: /Admin/UserList

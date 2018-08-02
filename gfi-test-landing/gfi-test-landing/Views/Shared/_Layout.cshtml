@@ -36,61 +36,78 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>@(gfi_test_landing.Resources.Layout.Dashboard) </a>
+                        <a href="/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>@(gfi_test_landing.Resources.Layout.Project) </a>
                     </li>
-                    <h3 class="menu-title">Options</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">@(gfi_test_landing.Resources.Layout.Options)</h3><!-- /.menu-title -->
+                    <li class="menu-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>@(gfi_test_landing.Resources.Layout.Dashboard)</a>
+                    </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>@(gfi_test_landing.Resources.Layout.Project)</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil"></i>@(gfi_test_landing.Resources.Layout.Tests)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-plus"></i><a href="/Home/Button">Create</a></li>
-                            <li><i class="menu-icon fa fa-list-ul"></i><a href="ui-badges.html">List</a></li>
+                            <li><i class="ti-plus"></i><a href="/Tests/Create">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="/Tests/Index">@(gfi_test_landing.Resources.Layout.List)</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil"></i>Test</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>@(gfi_test_landing.Resources.Layout.Report)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-plus"></i><a href="/Tests/Create">Create</a></li>
-                            <li><i class="menu-icon fa fa-list-ul"></i><a href="/Tests/Index">List</a></li>
+                            <li><i class="enu-icon fa fa-list-ul"></i><a href="forms-basic.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Battery</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>@(gfi_test_landing.Resources.Layout.Schedule)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-plus"></i><a href="forms-basic.html">Create</a></li>
-                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">List</a></li>
+                            <li><i class="ti-plus"></i><a href="forms-basic.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Schedule</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Battery)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="ti-plus"></i><a href="forms-basic.html">Create</a></li>
-                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">List</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Report</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Environments)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">List</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Objects)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Actions)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
                         </ul>
                     </li>
                     @*@if (User.Identity.AuthenticationType == "Admin")
-                    {*@
+        {*@
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Administration</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>@(gfi_test_landing.Resources.Layout.Administration)</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li >
-                                <i class="menu-icon fa fa-list-ul"></i> <a href="/Admin/CreateProject" >Create Project</a>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i> <a href="/Admin/CreateProject">@(gfi_test_landing.Resources.Layout.CreateProject)</a>
                             </li>
-                            <li >
-                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/ListProject" >List Project</a>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/ListProject">@(gfi_test_landing.Resources.Layout.ListProject)</a>
                             </li>
-                            <li >
-                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/Register" >Create User</a>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/Register">@(gfi_test_landing.Resources.Layout.CreateUser)</a>
                             </li>
-                            <li >
-                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/UserList">User List</a>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/UserList">@(gfi_test_landing.Resources.Layout.UserList)</a>
                             </li>
-                          
+
                         </ul>
                     </li>
                     @*}*@
@@ -112,14 +129,15 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
+                        @*<button class="search-trigger"><i class="fa fa-search"></i></button>
+        <div class="form-inline">
+            <form class="search-form">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+            </form>
+        </div>*@
+                        @*<img src="~/images/company/example.png" />*@
+                        <img src="~/images/company/example.png" style="width:100px"/>
                     </div>
                 </div>
                 @if (Request.IsAuthenticated)
@@ -133,11 +151,11 @@
                             <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
                         </a>
                         <a href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
-                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
-                                <img src="~/images/flag/uk.png" style=" width:40px " />
+                            <a  href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
+                                <img src="~/images/flag/uk.png" style=" width:40px "/>
                             </a>
                             <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null)">
-                                <img src="~/images/flag/pt.png" style=" width:40px " />
+                                <img src="~/images/flag/pt.png" style=" width:40px "/>
                             </a>
                         </a>
                         <div class="user-menu dropdown-menu" id="users-menu">

@@ -237,7 +237,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Credentials.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -281,6 +280,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Models\UserProjectModel.cs" />
     <Compile Include="Models\UserRoleProjectModel.cs" />
     <Compile Include="Object.cs">
@@ -469,6 +469,7 @@
     <Content Include="images\avatar\4.jpg" />
     <Content Include="images\avatar\5.jpg" />
     <Content Include="images\avatar\6.jpg" />
+    <Content Include="images\company\example.png" />
     <Content Include="images\flag\du.png" />
     <Content Include="images\flag\es.png" />
     <Content Include="images\flag\fr.png" />
@@ -839,11 +840,6 @@
     <Content Include="Views\Shared\_LogoutPartial.cshtml" />
     <Content Include="Views\Home\TestCreate.cshtml" />
     <Content Include="Views\Home\TestList.cshtml" />
-    <Content Include="Views\Tests\Create.cshtml" />
-    <Content Include="Views\Tests\Delete.cshtml" />
-    <Content Include="Views\Tests\Details.cshtml" />
-    <Content Include="Views\Tests\Edit.cshtml" />
-    <Content Include="Views\Tests\Index.cshtml" />
     <Content Include="Views\Account\ProfileUser.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
