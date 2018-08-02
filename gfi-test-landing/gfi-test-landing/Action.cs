@@ -18,7 +18,6 @@ namespace gfi_test_landing
         public Action()
         {
             this.ActionObject = new HashSet<ActionObject>();
-            this.Step = new HashSet<Step>();
             this.TestAction = new HashSet<TestAction>();
         }
     
@@ -28,8 +27,6 @@ namespace gfi_test_landing
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActionObject> ActionObject { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Step> Step { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TestAction> TestAction { get; set; }
     }

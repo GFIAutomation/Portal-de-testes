@@ -10,16 +10,10 @@
 namespace gfi_test_landing
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Step
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int id_action { get; set; }
-        public int id_object { get; set; }
-        public Nullable<System.DateTime> last_update { get; set; }
-        public string status { get; set; }
-    
-        public virtual Action Action { get; set; }
-        public virtual Object Object { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
