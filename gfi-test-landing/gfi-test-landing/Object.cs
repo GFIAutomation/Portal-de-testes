@@ -18,6 +18,7 @@ namespace gfi_test_landing
         public Object()
         {
             this.ActionObject = new HashSet<ActionObject>();
+            this.Step = new HashSet<Step>();
         }
     
         public int id { get; set; }
@@ -33,5 +34,7 @@ namespace gfi_test_landing
         public virtual Attribute Attribute { get; set; }
         public virtual Data Data { get; set; }
         public virtual Method Method { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Step> Step { get; set; }
     }
 }
