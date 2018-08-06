@@ -23,7 +23,6 @@
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
-
             <div class="navbar-header">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
@@ -91,7 +90,7 @@
                         </ul>
                     </li>
                     @*@if (User.Identity.AuthenticationType == "Admin")
-        {*@
+                    {*@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>@(gfi_test_landing.Resources.Layout.Administration)</a>
                         <ul class="sub-menu children dropdown-menu">
