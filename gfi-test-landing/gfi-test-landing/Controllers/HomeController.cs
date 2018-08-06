@@ -17,7 +17,12 @@ namespace gfi_test_landing.Controllers
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
         }
-
+        [Authorize]
+        public ActionResult Project(string language)
+        {
+            changeLanguage(language);
+            return View();
+        }
         [Authorize]
         public ActionResult Dashboard(string language)
         {
