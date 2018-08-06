@@ -10,6 +10,8 @@ namespace gfi_test_landing.Controllers
 {
     public class HomeController : Controller
     {
+        private testLandingEntities db = new testLandingEntities();
+
         private void changeLanguage(string language)
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
@@ -20,7 +22,33 @@ namespace gfi_test_landing.Controllers
         public ActionResult Dashboard(string language)
         {
             changeLanguage(language);
+
+            List<String> broswer = new List<String>();
+            int chrome = 0;
+            int firefox = 0;
+            foreach (var item in db.Test)
+            {
+                broswer.Add(item.broswer);
+                if (item.broswer == "Chrome")
+                {
+                    chrome++;
+                    ViewBag.brw1 = "Chrome";
+                }
+                    
+                if (item.broswer == "Firefox")
+                {
+                    firefox++;
+                    ViewBag.brw2 = "Firefox";
+                }
+                    
+            }
+            ViewBag.brwChrome = chrome;
+            ViewBag.Firefox = firefox;
+            ViewBag.broswer = broswer;
             return View();
+
+            //https://www.youtube.com/watch?v=20L-h1rKyvM
+            //https://www.youtube.com/watch?v=AqayTPADGsg
         }
         [Authorize]
         public ActionResult Index(string language)
