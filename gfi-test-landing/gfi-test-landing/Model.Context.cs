@@ -58,5 +58,7 @@ namespace gfi_test_landing
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<WeekDays> WeekDays { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+
+        public System.Data.Entity.DbSet<gfi_test_landing.Models.UserRoleProjectModel> UserRoleProjectModels { get; set; }
     }
 }

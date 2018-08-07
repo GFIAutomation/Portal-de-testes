@@ -6,77 +6,8 @@
 
 <h2>Details</h2>
 
-@*<div>
-    <h4>AspNetUsers</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmailConfirmed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-       
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-   
-</p>*@
-
 
 <div class="form-horizontal disabled">
-    <hr />
 
     <!-- Message to tell the user -->
     <div class="alert alert-light" role="alert">
@@ -109,15 +40,14 @@
                         </div>
                     </div>
                     @*<div class="form-actions form-group">
-                            <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Update" />
-                        </div>*@
+                        <input type="submit" style="border-radius:4px;" class="btn btn-success" value="Update" />
+                    </div>*@
                 </div>
             </div>
 
             <!-- Password change form -->
-
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Back to List", "UserList")
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "UserList")*@
 
 
         </div>
@@ -128,12 +58,16 @@
                 <div class="card-header"><h4>Picture</h4></div>
                 <img style="width:125px; height:125px; margin-top:5%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/developer.png" alt="@Html.DisplayNameFor(model => model.ImageUrl)">
                 @*<div class="card-body">
-                        <p class="card-text">Upload only png or jpg under 2MB.</p>
-                        <button type="button" style="border-radius:4px;" class="btn btn-secondary">Upload image</button>
-                    </div>*@
+                    <p class="card-text">Upload only png or jpg under 2MB.</p>
+                    <button type="button" style="border-radius:4px;" class="btn btn-secondary">Upload image</button>
+                </div>*@
             </div>
         </div>
+
+       
     </div>
+
+   
 
     @{Html.RenderAction("_RoleProjectByUser", "Admin", new { id = Model.Id });}
 

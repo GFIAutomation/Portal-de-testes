@@ -1,0 +1,117 @@
+﻿@model IEnumerable<gfi_test_landing.Models.DropRoleProjectByUserModel>
+
+@{
+
+
+    ViewBag.Title = "Editer data";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+<h4>Create a new account.</h4>
+
+
+
+@Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+
+
+
+<div class="form-horizontal disabled">
+    @foreach (var item in Model)
+    {
+        <div class="justify-content-between">
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h4>Personal information</h4></div>
+                    <div class="card-body card-block">
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                @Html.TextBoxFor(model => item.FirstName, new { @disabled = "", @class = "form-control", @placeholder = "Username" })
+                                @Html.TextBoxFor(model => item.LastName, new { @disabled = "", @class = "form-control", @placeholder = "Surname" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                @Html.TextBoxFor(model => item.Email, new { @disabled = "", @class = "form-control", @placeholder = "Email" })
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                @Html.PasswordFor(model => item.Email, new { @disabled = "", @class = "form-control", @placeholder = "Phone Number" })
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header"><h4>Picture</h4></div>
+                    <img style="width:125px; height:125px; margin-top:5%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/developer.png" alt="">
+                    @*<div class="card-body">
+                            <p class="card-text">Upload only png or jpg under 2MB.</p>
+                            <button type="button" style="border-radius:4px;" class="btn btn-secondary">Upload image</button>
+                        </div>*@
+                </div>
+            </div>
+
+        </div>
+
+        using (Html.BeginForm("EditRoleProjectByUser", "Admin", new { idUser = @item.IdUser, idProject = @item.IdProject, idRole = @item.IdRole, Email = item.Email, FirstName = item.FirstName, LastName = item.LastName, PhoneNumber = item.PhoneNumber,  }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header"><h4>Edit Role and Project</h4></div>
+                    <div class="card-body card-block">
+                        <div class="row form-group">
+                            <div class="col col-md-4"><label class=" form-control-label" for="select">Select Role</label></div>
+                            <div class="col-12 col-md-8">
+
+                                @Html.DropDownList("DropRole", (IEnumerable<SelectListItem>)ViewBag.DropRole, "--None--", new { @class = "form-control" })
+                                @*// ViewBag.DropProject, new { @class = "form-control" })*@
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-4"><label class=" form-control-label" for="select">Select Project</label></div>
+                            <div class="col-12 col-md-8">
+
+                                @Html.DropDownList("DropProject", (IEnumerable<SelectListItem>)ViewBag.DropProject, "--None--", new { @class = "form-control" })
+                                @*@Html.DropDownListFor(m => m.IdProject, (IEnumerable<SelectListItem>)ViewBag.projectList, "--Select Project--", new { @class = "form-control" })*@
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions form-group">
+                    <input type="submit" class="btn btn-success" value="Update" />
+                </div>
+
+            </div>
+
+        }
+
+    }
+</div>
+
+

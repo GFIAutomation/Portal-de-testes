@@ -12,87 +12,81 @@
 @using (Html.BeginForm("Register", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    @*<hr />*@
 
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
-
-
-    @*<div class="animated fadeIn">*@
-
-
-    <div class="col-lg-10 offset-1">
+<div class="col-lg-10 offset-1">
+  
         <div class="card">
-            @*<div class="card-header">Example Form</div>*@
+            <div class="card-header"><h4>Register new user</h4></div>
             <div class="card-body card-block">
-                @*<form action="" method="post" class="">*@
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Username" })
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Surname" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                        @Html.PasswordFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
-
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label" for="select">Select Role</label></div>
-                    <div class="col-12 col-md-9">
-                   
-                        @Html.DropDownListFor(m =>m.NameRole, (IEnumerable<SelectListItem>)ViewBag.roleList , "--Select Role--", new { @class = "form-control" })
-
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label" for="select">Select Project</label></div>
-                    <div class="col-12 col-md-9">
-
-                        @Html.DropDownListFor(m => m.IdProject, (IEnumerable<SelectListItem>)ViewBag.projectList, "--Select Project--", new { @class = "form-control" })
-
-                    </div>
-                </div>
-
-                <div class="form-actions form-group">
-                    <input type="submit" class="btn btn-success" value="Register" />
-                </div>
-                    @*</form>*@
-                    @*</div>*@
-                                </div>
+               
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Username" })
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Surname" })
                             </div>
-
                         </div>
-                    @*</div>*@
-}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                @Html.PasswordFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
+
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label" for="select">Select Role</label></div>
+                            <div class="col-12 col-md-9">
+
+                                @Html.DropDownListFor(m => m.NameRole, (IEnumerable<SelectListItem>)ViewBag.roleList, "--Select Role--", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label" for="select">Select Project</label></div>
+                            <div class="col-12 col-md-9">
+
+                                @Html.DropDownListFor(m => m.IdProject, (IEnumerable<SelectListItem>)ViewBag.projectList, "--Select Project--", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-actions form-group">
+                            <input type="submit" class="btn btn-success" value="Register" />
+                        </div>
+                        @*</form>*@
+                        @*</div>*@
+                    </div>
+                </div>
+
+            </div>
+            @*</div>*@
+            }
 
 
 

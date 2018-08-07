@@ -33,6 +33,16 @@ namespace gfi_test_landing.Controllers
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
         }
 
+
+        //
+        //GET: /Admin/CreateProject
+        [Authorize]
+        public ActionResult createProject()
+        {
+            //Carregar todas as listas
+            return View();
+        }
+
         //
         //GET: /Admin/UserList
         [Authorize]
@@ -50,10 +60,10 @@ namespace gfi_test_landing.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
-            
-          
+
+
 
             //if (userRoleProjectModel != null)
             //{
@@ -96,8 +106,8 @@ namespace gfi_test_landing.Controllers
             if (userRoleProjectModel == null)
             {
                 //Then Error
-               
-              }
+
+            }
             return PartialView(roleUserByProj);
 
         }
@@ -140,31 +150,164 @@ namespace gfi_test_landing.Controllers
             return View(aspNetUsers);
         }
 
-        // GET: AspNetUsers/Delete/5
-        public ActionResult Delete(string id)
+        //DELETE with modal
+        public ActionResult _ModalDelete(String id, String actionName, String idUser, String idRole, String idProject)
         {
-            if (id == null)
+            if (actionName == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
-            if (aspNetUsers == null)
+
+            if (actionName == "UserList")
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+                TempData["title"] = "User";
+                TempData["Msg"] = "Do you want to delete the " + aspNetUsers.Email + " ?";
+                return PartialView("_ModalDelete");
+            }
+
+            if (actionName == "roleProjectByUser")
+            {
+                if (idRole == null || idProject == null || idUser == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TempData["title"] = "Association";
+                TempData["Msg"] = "Do you want to delete this Row?";
+                return PartialView("_ModalDelete");
+            }
+            return PartialView();
+        }
+
+
+        //POST
+        //_ModalDeleteConfirm
+        [HttpPost, ActionName("_ModalDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult _ModalDeleteConfirmed(String id, String actionName, String idUser, String idRole, String idProject)
+        {
+            if (actionName == "UserList")
+            {
+                AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+
+                db.AspNetUsers.Remove(aspNetUsers);
+                db.SaveChanges();
+            }
+            if (actionName == "roleProjectByUser")
+            {
+                int idPro = int.Parse(idProject);
+                UserRole userRole = db.UserRole.Where(ur => ur.UserId == idUser && ur.RoleId == idRole && ur.id_project == idPro).First();
+
+                if (userRole == null)
+                {
+                    //Error
+                }
+                db.UserRole.Remove(userRole);
+                db.SaveChanges();
+                return RedirectToAction("Details", "Admin", new { id = id });
+            }
+            return RedirectToAction("UserList");
+        }
+
+        // GET: AspNetUsers/Edit/5
+        public ActionResult EditRoleProjectByUser(string idUser, int idProject, string idRole)
+        {
+            ViewBag.idUser = idUser;
+            ViewBag.idProject = idProject;
+            ViewBag.idRole = idRole;
+
+            if (idUser == null || idProject.ToString() == null || idRole == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (ViewBag.roleList == null && ViewBag.projectList == null)
+            {
+                getRolesAndProjectsDropDownEdit(idProject, idRole);
+            }
+
+
+
+            if (ViewBag.DropRole == null)
+            {
+                //ERROR
+            }
+      
+            IEnumerable<DropRoleProjectByUserModel> DropRoleProjetByUser = DropDownRoleProjetByUser(idUser, idProject, idRole);
+
+            if (DropRoleProjetByUser == null)
             {
                 return HttpNotFound();
             }
-            return View(aspNetUsers);
+
+            return View(DropRoleProjetByUser);
         }
 
-        // POST: AspNetUsers/Delete/5
-        [HttpPost, ActionName("Delete")]
+
+        // POST: /Admin/Register
+        [HttpPost, ActionName("EditRoleProjectByUser")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult EditRoleProjectByUser(DropRoleProjectByUserModel DropRoleProjetByUser, FormCollection form)
         {
-            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
-            db.AspNetUsers.Remove(aspNetUsers);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ViewBag.DropRole == null && ViewBag.DropProject == null)
+            {
+                getRolesAndProjectsDropDownEdit(DropRoleProjetByUser.IdProject, DropRoleProjetByUser.IdRole);
+            }
+        
+
+            string idRoleChange = form["DropRole"].ToString();
+
+            int idProjectChange = 0;
+            if (form["DropProject"] !=null && form["DropProject"] !="")
+            { 
+                 idProjectChange = Int32.Parse(form["DropProject"]);
+            }
+
+             UserRole userRole = db.UserRole.Where(ur => ur.id_project == DropRoleProjetByUser.IdProject && ur.RoleId == DropRoleProjetByUser.IdRole &&  ur.UserId == DropRoleProjetByUser.IdUser).FirstOrDefault();
+
+            DropDownRoleProjetByUser(DropRoleProjetByUser.IdUser, DropRoleProjetByUser.IdProject, DropRoleProjetByUser.IdRole);
+
+            if (userRole != null)
+            {
+                db.UserRole.Remove(userRole);
+                db.SaveChanges();
+            }
+            else
+            {
+                //ERROR
+            }
+
+            UserRole userRoleInsert = new UserRole();
+
+            if (idRoleChange != DropRoleProjetByUser.IdRole || idProjectChange != DropRoleProjetByUser.IdProject || idRoleChange!="")
+            {
+                if ( idProjectChange==0)
+                {
+                    idProjectChange = DropRoleProjetByUser.IdProject;
+                }
+   
+                if(DropRoleProjetByUser.IdRole != idRoleChange && idRoleChange !="")
+                {
+                    DropRoleProjetByUser.IdRole = idRoleChange;
+                }
+                
+                userRoleInsert.RoleId = DropRoleProjetByUser.IdRole;
+                userRoleInsert.id_project = idProjectChange;
+                userRoleInsert.UserId = DropRoleProjetByUser.IdUser;
+                userRoleInsert.date = DateTime.Now;
+
+                db.UserRole.Add(userRoleInsert);
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Details", "Admin", new { id = DropRoleProjetByUser.IdUser });
+
         }
+
 
         protected override void Dispose(bool disposing)
         {
@@ -262,6 +405,32 @@ namespace gfi_test_landing.Controllers
             }
         }
 
+        private IEnumerable<DropRoleProjectByUserModel> DropDownRoleProjetByUser(string idUser, int idProject, string idRole){
+
+            IEnumerable<DropRoleProjectByUserModel> DropRoleProjetByUser = (from ur in db.UserRole
+                                                                            join p in db.Project on ur.id_project equals p.id
+                                                                            join u in db.AspNetUsers on ur.UserId equals u.Id
+                                                                            join r in db.AspNetRoles on ur.RoleId equals r.Id
+                                                                            where (u.Id == idUser && p.id == idProject && r.Id == idRole)
+
+                                                                            select new DropRoleProjectByUserModel()
+                                                                            {
+                                                                                Email = u.Email,
+                                                                                FirstName = u.FirstName,
+                                                                                LastName = u.LastName,
+                                                                                ImageUser = u.ImageUrl,
+                                                                                PhoneNumber = u.PhoneNumber,
+                                                                                NameRole = r.Name,
+                                                                                NameProject = p.name,
+                                                                                IdProject = p.id,
+                                                                                IdRole = r.Id,
+                                                                                IdUser = u.Id
+
+                                                                            }).ToList();
+
+            return DropRoleProjetByUser;
+    }
+
         private void getRolesAndProjectsDropDown()
         {
             var roleIDs = db.AspNetRoles.Select(x => x);
@@ -286,6 +455,34 @@ namespace gfi_test_landing.Controllers
             }
             ViewBag.roleList = items;
             ViewBag.projectList = itemsProject;
+
+        }
+
+        private void getRolesAndProjectsDropDownEdit(int idProject, string idRole)
+        {
+            var roleIDs = db.AspNetRoles.Select(x => x).Where(x=>x.Id !=idRole );
+            var projectIDs = db.Project.Select(x => x).Where(x => x.id != idProject);
+            List<SelectListItem> items = new List<SelectListItem>();
+            foreach (var t in roleIDs)
+            {
+                SelectListItem s = new SelectListItem();
+                s.Text = t.Name.ToString();
+                s.Value = t.Id.ToString();
+                items.Add(s);
+            }
+            ViewBag.roleList = items;
+
+            List<SelectListItem> itemsProject = new List<SelectListItem>();
+            foreach (var p in projectIDs)
+            {
+                SelectListItem a = new SelectListItem();
+                a.Text = p.name.ToString();
+                a.Value = p.id.ToString();
+                itemsProject.Add(a);
+            }
+
+            ViewBag.DropRole = new SelectList(items.AsEnumerable(), "Value", "Text", idRole);
+            ViewBag.DropProject = new SelectList(itemsProject.AsEnumerable(), "Value", "Text", idProject);
         }
 
         private void saveUserProject(RegisterViewModel model, ApplicationUser user)
