@@ -1,0 +1,244 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Testing platform</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">-->
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                @*<a class="navbar-brand" href="./"><img src="~/images/logo.png" alt="Logo"></a>*@
+                <a class="navbar-brand" href="./"><img src="~/images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="~/images/logo2.png" alt="Logo"></a>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>@(gfi_test_landing.Resources.Layout.Project) </a>
+                    </li>
+                    <h3 class="menu-title">@(gfi_test_landing.Resources.Layout.Options)</h3><!-- /.menu-title -->
+                    <li class="menu-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>@(gfi_test_landing.Resources.Layout.Dashboard)</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil"></i>@(gfi_test_landing.Resources.Layout.Tests)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-plus"></i><a href="/Tests/Create">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="/Tests/Index">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>@(gfi_test_landing.Resources.Layout.Report)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="enu-icon fa fa-list-ul"></i><a href="forms-basic.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>@(gfi_test_landing.Resources.Layout.Schedule)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-plus"></i><a href="forms-basic.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Battery)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Environments)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Objects)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>@(gfi_test_landing.Resources.Layout.Actions)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.Create)</a></li>
+                            <li><i class="menu-icon fa fa-list-ul"></i><a href="forms-advanced.html">@(gfi_test_landing.Resources.Layout.List)</a></li>
+                        </ul>
+                    </li>
+                    @*@if (User.Identity.AuthenticationType == "Admin")
+        {*@
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>@(gfi_test_landing.Resources.Layout.Administration)</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i> <a href="/Admin/CreateProject">@(gfi_test_landing.Resources.Layout.CreateProject)</a>
+                            </li>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/ListProject">@(gfi_test_landing.Resources.Layout.ListProject)</a>
+                            </li>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/Register">@(gfi_test_landing.Resources.Layout.CreateUser)</a>
+                            </li>
+                            <li>
+                                <i class="menu-icon fa fa-list-ul"></i><a href="/Admin/UserList">@(gfi_test_landing.Resources.Layout.UserList)</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    @*}*@
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+    <!-- Left Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" id="user-image" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" @*onclick="functionProfile()"*@ aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="~/images/avatar/default.png" alt="User Avatar">
+                        </a>
+                        <a href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-UK" }, null)">
+                                <img src="~/images/flag/uk.png" style=" width:40px " />
+                            </a>
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null)">
+                                <img src="~/images/flag/pt.png" style=" width:40px " />
+                            </a>
+                        </a>
+                        <div class="user-menu dropdown-menu" id="users-menu">
+
+                            <a class="nav-link" href="#">
+                                @*@Html.DisplayFor(User.Identity.GetUserName(), "Index", "Manage",  new { @class = "fa fa-user" })*@
+                                @*@Html.DisplayFor(model => model.Email.FirstOrDefault())*@
+                                <i class="fa ti-user"> </i> Olá @Session["FirstName"]
+                            </a>
+                            <hr>
+                            <a class="nav-link" href="/Account/ProfileUser"><i class="fa fa-user"></i> My Profile</a>
+
+                            @*<a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>*@
+
+                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                            <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i> Logout</a>
+                        </div>
+                    </div>
+                    @*<ul>
+            <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-US" }, null) </li>
+            <li>@Html.ActionLink("Portugues", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "pt-PT" }, null) </li>
+        </ul>*@
+                </div>
+                    }
+                                        }
+            </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Content/js")
+
+  
+
+    <script>
+        (function ($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+
+
+</body>
+</html>
