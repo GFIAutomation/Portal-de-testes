@@ -492,7 +492,7 @@ namespace gfi_test_landing.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Dashboard", "Home");
+            return RedirectToAction("Project", "Home");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
