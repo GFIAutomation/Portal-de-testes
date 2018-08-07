@@ -1,0 +1,53 @@
+﻿@model gfi_test_landing.Project
+@{
+    ViewBag.Title = "Project";
+}
+
+<h2>Avaliable projects</h2>
+<br />
+<hr />
+<!doctype html>
+<html class="no-js" lang="">
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 15rem;height: 22rem;padding:2%;">
+                    <img style="margin-top:5%; padding:10%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/google.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(model => model.name)</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="bottom:0;left:0;position:absolute;margin:8%;">Select project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 15rem;height: 22rem;padding:2%;">
+                    <img style="margin-top:5%;padding:10%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/facebook-logo.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="bottom:0;left:0;position:absolute;margin:8%;">Select project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 15rem;height: 22rem;padding:2%;">
+                    <img style="margin-top:5%;padding:10%;" class="card-img-top rounded mx-auto d-block" src="~/images/avatar/Twitch.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="bottom:0;left:0;position:absolute;margin:8%;"">Select project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <!--  Chart js -->
+    <script src="~/Content/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="~/Content/js/lib/chart-js/chartjs-init.js"></script>
+</body>
+</html>
+

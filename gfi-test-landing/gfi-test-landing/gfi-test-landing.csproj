@@ -281,6 +281,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Chart.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Controllers\TestsController.cs" />
@@ -790,6 +791,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\chart\exporting.js" />
+    <Content Include="Scripts\chart\highcharts.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -845,12 +848,17 @@
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Shared\_RoleProjectByUser.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_ModalDelete.cshtml" />
     <Content Include="Views\Admin\EditRoleProjectByUser.cshtml" />
+=======
+    <Content Include="Views\Home\Project.cshtml" />
+>>>>>>> 99e406282879a2ef422f1458f4fcb3d22a4f2bf8
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Lang\" />
     <Folder Include="Views\LocalisationAttribute\" />
     <Folder Include="Views\Localized\" />
